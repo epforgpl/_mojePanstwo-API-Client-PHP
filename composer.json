@@ -1,0 +1,9 @@
+{
+    "name": "epforgpl/_mojePanstwo-API-Client-PHP",
+    "license": "MIT",
+    "type": "cakephp-plugin",
+    "version": "1.0.0",
+    "require": {
+        "composer/installers": "*"
+    }
+}
