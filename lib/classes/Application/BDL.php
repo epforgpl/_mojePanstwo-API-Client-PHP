@@ -22,5 +22,11 @@ class BDL extends Application
         ));
         return @$data['data'];
     }
-
+    
+    public function getDataForDimension( $dim_id )
+    {
+        $data = @$this->request('dataForDimmesion/' . $dim_id);
+        return @$data['data'];
+    }
+    
 }
