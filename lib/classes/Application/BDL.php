@@ -29,4 +29,12 @@ class BDL extends Application
         return @$data['data'];
     }
     
+    public function getLocalDataForDimension( $dim_id, $level )
+    {
+        $data = @$this->request('localDataForDimension/' . $dim_id, array(
+        	'level' => $level,
+        ));
+        return @$data['data'];
+    }
+    
 }
