@@ -166,6 +166,11 @@ class API
     {
         return new ZamowieniaPubliczne();
     }
+    
+    final public function BDL()
+    {
+        return new BDL();
+    }
 
     final public function document($id)
     {
