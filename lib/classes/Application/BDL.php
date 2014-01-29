@@ -14,5 +14,13 @@ class BDL extends Application
         ));
         return @$data['data'];
     }
+    
+    public function getChartDataForDimmesions( $dims )
+    {
+        $data = @$this->request('chartDataForDimmesions', array(
+        	'dims' => $dims,
+        ));
+        return @$data['data'];
+    }
 
 }
