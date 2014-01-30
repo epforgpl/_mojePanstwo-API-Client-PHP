@@ -167,6 +167,11 @@ class DataObject extends \MP\API
     {
         return true;
     }
+    
+    public function getHighlightsFields()
+    {
+	    return array();
+    }
 
     public function __call($func, $arg)
     {

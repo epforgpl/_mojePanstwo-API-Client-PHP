@@ -24,5 +24,18 @@ class Sejm_interpelacje extends DocDataObject
     {
         return '<strong>Interpelacja</strong> nr ' . $this->getData('numer');
     }
+    
+    public function getHighlightsFields()
+    {
+	    
+	    return array(
+	    	'poslowie_str' => array(
+	    		'label' => 'Od',
+	    		'img' => 'http://resources.sejmometr.pl/mowcy/a/3/' . $this->getData('mowca_id') . '.jpg',
+	    	),
+	    	'adresaci_str' => 'Do',
+	    );
+	    	    
+    }
 
 }
