@@ -19,7 +19,11 @@ class Bdl_wskazniki_grupy extends DataObject
     {
 	    
 	    return array(
-	    	'kategoria_tytul' => 'Kategoria',
+	    	'kategoria_tytul' => array(
+	    		'label' => 'Kategoria',
+	    		'href' => '/dane/bdl_wskazniki_kategorie/' . $this->getData('kategoria_id'),
+	    		'normalizeText' => true,
+	    	),
 	    );
 	    	    
     }

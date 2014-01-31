@@ -16,5 +16,10 @@ class Prawo_lokalne extends DocDataObject
     {
         return 'Uchwała <strong>' . $this->getData('jednostka_dopelniacz') . '</strong>, numer <strong>' . $this->getData('akt_numer') . '</strong> z dnia <strong>' . $this->dataSlownie($this->getDate()) . '</strong>';
     }
-
+	
+	public function forceHighlightsFields()
+    {
+	    return true;
+    }
+	
 }

@@ -20,8 +20,15 @@ class Bdl_wskazniki extends DataObject
     {
 	    
 	    return array(
-	    	'kategoria_tytul' => 'Kategoria',
-	    	'grupa_tytul' => 'Grupa',
+	    	'kategoria_tytul' => array(
+	    		'label' => 'Kategoria',
+	    		'href' => '/dane/bdl_wskazniki_kategorie/' . $this->getData('kategoria_id'),
+	    		'normalizeText' => true,
+	    	),
+	    	'grupa_tytul' => array(
+	    		'label' => 'Grupa',
+	    		'href' => '/dane/bdl_wskazniki_grupy/' . $this->getData('grupa_id'),
+	    	),
 	    	'poziom_str' => 'Szczegółowość',
 	    	'data_aktualizacji' => 'Data aktualizacji',
 	    );
