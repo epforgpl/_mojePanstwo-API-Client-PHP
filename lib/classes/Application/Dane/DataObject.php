@@ -168,6 +168,11 @@ class DataObject extends \MP\API
         return true;
     }
     
+    public function forceHighlightsFields()
+    {
+	    return false;
+    }
+    
     public function getHighlightsFields()
     {
 	    return array();

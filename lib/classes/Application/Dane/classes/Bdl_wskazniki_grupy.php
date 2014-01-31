@@ -14,5 +14,14 @@ class Bdl_wskazniki_grupy extends DataObject
     {
         return '<strong>Grupa wskaźników</strong> Banku Danych Lokalnych';
     }
+    
+    public function getHighlightsFields()
+    {
+	    
+	    return array(
+	    	'kategoria_tytul' => 'Kategoria',
+	    );
+	    	    
+    }
 
 }
