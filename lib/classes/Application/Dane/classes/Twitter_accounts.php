@@ -1,21 +1,26 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: adamciezkowski
- * Date: 03/12/13
- * Time: 13:21
- */
+<?
 
 namespace MP\Dane;
-
 
 class Twitter_accounts extends DocDataObject
 {
 
-    protected $_fields = array(
-        'title' => 'name',
+    protected $schema = array(
+		array('liczba_tweetow', 'Liczba tweetów', 'integer'),
+		array('liczba_retweetow_wlasnych', 'Liczba retweetów', 'integer'),
+		array('liczba_wzmianek_rts', 'Liczba wzmianek', 'integer'),
+		array('liczba_odpowiedzi_rts', 'Liczba odpowiedzi', 'integer'),
+		array('liczba_obserwujacych', 'Liczba obserwujacych', 'integer'),
+	);
+	
+	protected $routes = array(
+	    'title' => 'name',
         'shortTitle' => 'name',
-    );
+	);
+	
+	protected $hl_fields = array(
+		'liczba_tweetow', 'liczba_retweetow_wlasnych', 'liczba_wzmianek_rts', 'liczba_odpowiedzi_rts', 'liczba_obserwujacych',
+	);
 
     public function getShortTitle()
     {

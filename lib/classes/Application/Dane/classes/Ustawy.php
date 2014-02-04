@@ -4,24 +4,32 @@ namespace MP\Dane;
 
 class Ustawy extends DataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('status_id', 'Status', 'string', array(
+			'dictionary' => array(
+				'1' => 'Obowiązująca',
+				'2' => 'Nieobowiązująca',
+			),
+		)),
+		array('data_wydania', 'Data wydania'),
+		array('data_publikacji', 'Data publikacji'),
+		array('data_wejscia_w_zycie', 'Data wejścia w życie'),
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',
-        'date' => 'data_wydania',
+        'date' => false,
+    );
+    
+    protected $hl_fields = array(
+    	'status_id', 'data_wydania', 'data_publikacji', 'data_wejscia_w_zycie'
     );
 
     public function getLabel()
     {
-
-        $output = '<b>';
-        if ($this->getData('status_id') == '1')
-            $output .= 'Obowiązująca ';
-        elseif ($this->getData('status_id') == '2')
-            $output .= 'Nieobowiązująca ';
-        $output .= 'ustawa</b> z dnia ' . $this->dataSlownie($this->getData('data_wydania'));
-
-        return $output;
+        return 'Ustawa';
     }
 
 }

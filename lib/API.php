@@ -28,7 +28,7 @@ class API
             ),
         ),
     );
-
+	
     public function __construct($user_id = null, $stream_id = 1)
     {
         if (!is_null($user_id)) {
@@ -121,6 +121,57 @@ class API
 
         return '<span class="_ds" value="' . strip_tags($data) . '">' . $rok . ' ' . $this->strings['miesiace']['celownik'][$miesiac] . ' ' . $dzien . ' r.</span>';
     }
+    
+    public function pl_wiek( $data )
+	{
+		$birthDate = explode("-", substr($data, 0, 10));
+	    $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[1], $birthDate[2], $birthDate[0]))) > date("md") ? ((date("Y") - $birthDate[0]) - 1) : (date("Y") - $birthDate[0]));
+	    return $age;
+	}
+	
+	function pl_dopelniacz($count = 0, $formA = '', $formB = '', $formC = '', $options = array())
+	{
+	    if ($count == 0)
+	        return '';
+	
+	    elseif ($count == 1)
+	        $r = $formA;
+	
+	    elseif ($count < 5)
+	        $r = $formB;
+	
+	    elseif ($count < 22)
+	        $r = $formC;
+	
+	    else {
+	        $d = $count % 10;
+	        if ($d < 2)
+	            $r = $formC;
+	
+	        elseif ($d < 5)
+	            $r = $formB;
+	
+	        else
+	            $r = $formC;
+	    }
+	
+	
+	    $options['numberTag'] = isset($options['numberTag']) ? $options['numberTag'] : false;
+		
+		$output = '';
+		
+	    if( $options['numberTag'] )
+	        $output .= '<' . $options['numberTag'] . '>';
+	    
+	    $output .= $count;
+	    
+	    if( $options['numberTag'] )
+		    '</' . $options['numberTag'] . '>';
+	
+		$output .= '&nbsp;' . $r;
+		
+	    return $output;
+	}
 
     final public function Dane()
     {

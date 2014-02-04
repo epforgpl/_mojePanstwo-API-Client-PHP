@@ -11,9 +11,21 @@ namespace MP\Dane;
 
 class Poslowie_wspolpracownicy extends DocDataObject
 {
+	
+	protected $schema = array(
+		array('poslowie.nazwa', 'Zatrudniający', 'string', array(
+			'link' => array(
+				'dataset' => 'poslowie',
+				'object_id' => '$poslowie.id',
+			),
+		)),
+	);
+	
+	protected $hl_fields = array('poslowie.nazwa');
+	
     public function getLabel()
     {
-        return '<strong>' . $this->getData('funkcja') . '</strong> posła <strong><a href="/dane/poslowie/' . $this->getData('posel_id') . '">' . $this->getData('poslowie.dopelniacz') . '</a></strong>';
+        return 'Współpracownik poseł';
     }
 
     public function getTitle()

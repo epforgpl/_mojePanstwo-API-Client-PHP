@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Bdl_wskazniki_kategorie extends DataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
     );

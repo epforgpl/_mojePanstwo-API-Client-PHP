@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Legislacja_projekty_ustaw extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',
         'date' => 'data',

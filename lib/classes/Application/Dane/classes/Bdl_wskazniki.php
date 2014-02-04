@@ -4,35 +4,37 @@ namespace MP\Dane;
 
 class Bdl_wskazniki extends DataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('kategoria_tytul', 'Kategoria', 'string', array(
+			'link' => array(
+				'dataset' => 'bdl_wskazniki_kategorie',
+				'object_id' => '$kategoria_id',
+			),
+		)),
+		array('grupa_tytul', 'Grupa', 'string', array(
+			'link' => array(
+				'dataset' => 'bdl_wskazniki_grupy',
+				'object_id' => '$grupa_id',
+			),
+		)),
+		array('poziom_str', 'Szczegółowość'),
+		array('data_aktualizacji', 'Data aktualizacji'),
+	);
+		
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => false,
+    );
+    
+    protected $hl_fields = array(
+    	'kategoria_tytul', 'grupa_tytul', 'poziom_str', 'data_aktualizacji'
     );
 
     public function getLabel()
     {
         return 'Wskaźniki Banku Danych Lokalnych';
-    }
-    
-    public function getHighlightsFields()
-    {
-	    
-	    return array(
-	    	'kategoria_tytul' => array(
-	    		'label' => 'Kategoria',
-	    		'href' => '/dane/bdl_wskazniki_kategorie/' . $this->getData('kategoria_id'),
-	    		'normalizeText' => true,
-	    	),
-	    	'grupa_tytul' => array(
-	    		'label' => 'Grupa',
-	    		'href' => '/dane/bdl_wskazniki_grupy/' . $this->getData('grupa_id'),
-	    	),
-	    	'poziom_str' => 'Szczegółowość',
-	    	'data_aktualizacji' => 'Data aktualizacji',
-	    );
-	    	    
     }
 
 }

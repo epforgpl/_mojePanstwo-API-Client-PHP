@@ -5,7 +5,7 @@ namespace MP\Dane;
 class MSiG extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'date' => 'data',
     );
 

@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Poslowie_oswiadczenia_majatkowe extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'date' => 'data',
         'shortTitle' => 'label',
     );

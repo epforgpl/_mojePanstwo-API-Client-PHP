@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Poslowie_rejestr_korzysci extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'date' => 'data',
         'shortTitle' => 'label',
     );

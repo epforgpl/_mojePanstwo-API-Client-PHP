@@ -4,8 +4,21 @@ namespace MP\Dane;
 
 class Bdl_wskazniki_grupy extends DataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('kategoria_tytul', 'Kategoria', 'string', array(
+			'link' => array(
+				'dataset' => 'bdl_wskazniki_kategorie',
+				'object_id' => '$kategoria_id',
+			),
+		)),
+	);
+	
+	protected $hl_fields = array(
+    	'kategoria_tytul',
+    );
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
     );
@@ -13,19 +26,6 @@ class Bdl_wskazniki_grupy extends DataObject
     public function getLabel()
     {
         return '<strong>Grupa wskaźników</strong> Banku Danych Lokalnych';
-    }
-    
-    public function getHighlightsFields()
-    {
-	    
-	    return array(
-	    	'kategoria_tytul' => array(
-	    		'label' => 'Kategoria',
-	    		'href' => '/dane/bdl_wskazniki_kategorie/' . $this->getData('kategoria_id'),
-	    		'normalizeText' => true,
-	    	),
-	    );
-	    	    
     }
 
 }

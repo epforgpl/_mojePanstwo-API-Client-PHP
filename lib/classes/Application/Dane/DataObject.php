@@ -9,16 +9,21 @@ class DataObject extends \MP\API
         'url_protocol' => URL_PROTOCOL,
         'url_host' => URL_HOST,
     );
-
-    protected $fields_routes = array(
+	
+	protected $schema = array();
+    protected $_routes = array(
         'date' => 'data',
         'title' => 'title',
         'shortTitle' => 'title',
         'description' => 'opis',
         'label' => 'label',
+        'titleAddon' => false,
     );
-    protected $_fields = array();
-
+    
+    protected $routes = array();
+	protected $hl_fields = array();
+    public $force_hl_fields = false;
+    
     public $data;
     public $layers = array();
     public $id;
@@ -41,8 +46,7 @@ class DataObject extends \MP\API
             $this->hl = $params['hl'];
         }
 
-        if (!empty($this->_fields))
-            $this->fields_routes = array_merge($this->fields_routes, $this->_fields);
+        $this->routes = array_merge($this->_routes, $this->routes);
 
     }
 
@@ -109,32 +113,37 @@ class DataObject extends \MP\API
 
     public function getDate()
     {
-        return @substr($this->getData($this->fields_routes['date']), 0, 10);
+        return @substr($this->getData($this->routes['date']), 0, 10);
     }
 
     public function getTime()
     {
-        return @$this->getData($this->fields_routes['time']);
+        return @$this->getData($this->routes['time']);
     }
 
     public function getTitle()
     {
-        return $this->getData($this->fields_routes['title']);
+        return $this->getData($this->routes['title']);
     }
 
     public function getShortTitle()
     {
-        return $this->getData($this->fields_routes['shortTitle']);
+        return $this->getData($this->routes['shortTitle']);
     }
 
     public function getDescription()
     {
-        return $this->getData($this->fields_routes['description']);
+        return $this->getData($this->routes['description']);
+    }
+    
+    public function getTitleAddon()
+    {
+        return $this->getData($this->routes['titleAddon']);
     }
 
     public function getLabel()
     {
-        return $this->getData($this->fields_routes['label']);
+        return $this->getData($this->routes['label']);
     }
 
     public function getHlText()
@@ -177,7 +186,45 @@ class DataObject extends \MP\API
     {
 	    return array();
     }
+	
+	public function getSchemaForFieldname( $fieldname )
+	{
+		$output = false;
+		
+		if( $fieldname && !empty($this->schema) )
+		{
+			foreach( $this->schema as $s )
+			{
+				if( $s[0] == $fieldname )
+				{
+					$output = $s;
+					break;
+				}
+			}
+		}
+		
+		return $output;
+	}
+	
+	public function getHiglightedFields( $fields = false )
+	{
+		$output = array();
+		
+		$fields = ($fields===false) ? $this->hl_fields : $fields;
+		
+		if( !empty($fields) )
+			foreach( $fields as $fieldname )
+				if( $schema = $this->getSchemaForFieldname( $fieldname ) )
+					$output[ $fieldname ] = array(
+						'label' => $schema[1],
+						'type' => isset($schema[2]) ? $schema[2] : 'string',
+						'value' => $this->getData($fieldname),
+						'options' => isset($schema[3]) ? $schema[3] : 'string',
+					);
 
+		return $output;
+	}
+	
     public function __call($func, $arg)
     {
         $func = str_replace('get', '', $func);
