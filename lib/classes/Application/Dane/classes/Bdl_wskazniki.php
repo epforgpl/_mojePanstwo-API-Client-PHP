@@ -11,6 +11,7 @@ class Bdl_wskazniki extends DataObject
 				'dataset' => 'bdl_wskazniki_kategorie',
 				'object_id' => '$kategoria_id',
 			),
+			'normalizeText' => true,
 		)),
 		array('grupa_tytul', 'Grupa', 'string', array(
 			'link' => array(
