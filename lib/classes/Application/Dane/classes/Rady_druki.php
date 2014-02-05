@@ -4,8 +4,12 @@ namespace MP\Dane;
 
 class Rady_druki extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	$schema = array(
+		array(),
+	),
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'data',

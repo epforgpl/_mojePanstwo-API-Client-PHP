@@ -41,7 +41,7 @@ class Krs_osoby extends DataObject
     		for( $i=0; $i<count($matches[0]); $i++ )
     			if( !in_array($matches[0][$i], $items) )
     				$items[] = $matches[0][$i];
-    		return '<ul class="hl_ul normalizeText"><li>' . implode('</li><li>', $items) . '</li></ul>';
+    		return $items;
 	    }
 	    	
     	return parent::getData( $field );        

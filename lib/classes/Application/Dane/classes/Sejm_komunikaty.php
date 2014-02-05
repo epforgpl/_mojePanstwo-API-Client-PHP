@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Sejm_komunikaty extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'date',

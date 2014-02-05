@@ -11,20 +11,40 @@ namespace MP\Dane;
 
 class Sejm_debaty extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('sejm_posiedzenia.tytul', 'Numer posiedzenia', 'string', array(
+			'link' => array(
+				'dataset' => 'sejm_posiedzenia',
+				'object_id' => '$posiedzenie_id',
+			),
+		)),
+		array('punkt_nr', 'Numer punktu', 'string', array(
+			'link' => array(
+				'dataset' => 'sejm_posiedzenia_punkty',
+				'object_id' => '$punkt_id',
+			),
+		)),
+		array('liczba_wystapien', 'Liczba wystąpień', 'integer'),
+		array('liczba_glosowan', 'Liczba głosowań', 'integer'),
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
+    );
+    
+    protected $hl_fields = array(
+    	'sejm_posiedzenia.tytul', 'punkt_nr', 'liczba_wystapien', 'liczba_glosowan'
     );
 
     public function getLabel()
     {
         return 'Debata na posiedzeniu Sejmu <strong>' . $this->getData('sejm_posiedzenia.tytul') . '</strong>';
-    }
-
-    public function getThumbnailUrl($size = false)
-    {
-        return $this->getData('liczba_wystapien') ? 'http://resources.sejmometr.pl/stenogramy/subpunkty/' . $this->getId() . '.jpg' : false;
-    }
-
+    }   
+	
+	public function getTitleAddon()
+	{
+		return $this->getData('tytul_prefix');
+	}
 } 

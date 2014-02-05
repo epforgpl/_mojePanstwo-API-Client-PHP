@@ -4,12 +4,20 @@ namespace MP\Dane;
 
 class Sejm_zamrazarka extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('autorzy_str', 'Autor'),
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'data',
         'label' => 'label'
+    );
+    
+    protected $hl_fields = array(
+    	'autorzy_str'
     );
 
     public function getLabel()

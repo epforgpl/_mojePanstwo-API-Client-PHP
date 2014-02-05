@@ -4,17 +4,26 @@ namespace MP\Dane;
 
 class Sejm_druki extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('druk_typ_nazwa', 'Typ druku'),
+		array('numer', 'Numer')
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'data_publikacji',
         'label' => 'label'
     );
+    
+    protected $hl_fields = array(
+    	'numer', 'druk_typ_nazwa'
+    );
 
     public function getLabel()
     {
-        return '<strong>Druk sejmowy</strong> nr ' . $this->getData('numer');
+        return 'Druk sejmowy';
     }
 
 }

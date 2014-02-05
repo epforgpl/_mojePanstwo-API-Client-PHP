@@ -13,13 +13,22 @@ class Sejm_interpelacje extends DocDataObject
             $this->data['poslowie_str'] = preg_replace('/href\=\"\/(.*?)\/([0-9]+)\"/i', 'href="/dane/$1/$2"', $this->data['poslowie_str']);
 
     }
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('poslowie_str', 'Od'),
+		array('adresaci_str', 'Do'),
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',
         'date' => 'data_wplywu',
     );
-
+	
+	protected $hl_fields = array(
+		'poslowie_str', 'adresaci_str'
+	);
+	
     public function getLabel()
     {
         return '<strong>Interpelacja</strong> nr ' . $this->getData('numer');

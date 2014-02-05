@@ -4,11 +4,26 @@ namespace MP\Dane;
 
 class Rady_posiedzenia extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('numer', 'Numer'),
+		array('gminy.rada_nazwa', 'Rada', 'string', array(
+			'link' => array(
+				'dataset' => 'gminy',
+				'object_id' => '$gmina_id',
+			),
+		)),
+		array('liczba_debat', 'Liczba debat', 'integer'),
+	);
+	
+    protected $routes = array(
         'title' => 'numer',
         'shortTitle' => 'numer',
         'date' => 'data',
+    );
+    
+    protected $hl_fields = array(
+    	'gminy.rada_nazwa', 'numer', 'liczba_debat',
     );
 
     public function getLabel()

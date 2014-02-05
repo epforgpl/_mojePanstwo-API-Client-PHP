@@ -4,16 +4,24 @@ namespace MP\Dane;
 
 class Senat_druki extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('numer', 'Numer'),
+	);
+	
+    protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'data',
     );
+    
+    protected $hl_fields = array(
+    	'numer'
+    );
 
     public function getLabel()
     {
-        return '<strong>Druk senacki</strong> nr ' . $this->getData('numer');
+        return 'Druk senacki';
     }
 
 }

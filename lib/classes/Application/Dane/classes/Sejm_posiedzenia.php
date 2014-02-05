@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Sejm_posiedzenia extends DocDataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'shortTitle' => 'numer',
         'date' => 'data_start',
         'label' => 'label'
