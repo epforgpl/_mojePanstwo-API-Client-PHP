@@ -225,6 +225,11 @@ class DataObject extends \MP\API
 		return $output;
 	}
 	
+	public function addRoutes( $routes = array() )
+	{
+		$this->routes = array_merge($this->routes, $routes);
+	}
+	
     public function __call($func, $arg)
     {
         $func = str_replace('get', '', $func);

@@ -6,7 +6,7 @@ class Rady_posiedzenia extends DocDataObject
 {
 	
 	protected $schema = array(
-		array('numer', 'Numer'),
+		array('numer', 'Numer posiedzenia'),
 		array('gminy.rada_nazwa', 'Rada', 'string', array(
 			'link' => array(
 				'dataset' => 'gminy',
@@ -28,7 +28,7 @@ class Rady_posiedzenia extends DocDataObject
 
     public function getLabel()
     {
-        return 'Posiedzenie <strong>numer ' . $this->getData('numer') . '</strong> ' . $this->getData('gminy.rada_nazwa_dopelniacz');
+        return 'Posiedzenie rady gminy';
     }
 
     public function getTitle()
