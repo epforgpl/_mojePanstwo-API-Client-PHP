@@ -13,7 +13,7 @@ class Sejm_posiedzenia extends DocDataObject
 
     public function getLabel()
     {
-        return '<strong>Posiedzenie Sejmu</strong> nr ' . $this->getData('numer');
+        return 'Posiedzenie Sejmu';
     }
 
     public function getTitle()

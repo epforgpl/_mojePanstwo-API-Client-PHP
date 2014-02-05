@@ -40,7 +40,7 @@ class Sejm_debaty extends DocDataObject
 
     public function getLabel()
     {
-        return 'Debata na posiedzeniu Sejmu <strong>' . $this->getData('sejm_posiedzenia.tytul') . '</strong>';
+        return 'Debata na posiedzeniu Sejmu';
     }   
 	
 	public function getTitleAddon()
