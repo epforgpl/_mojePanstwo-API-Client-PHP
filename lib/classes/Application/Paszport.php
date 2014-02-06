@@ -23,7 +23,7 @@ class Paszport extends Application
 
     public function User()
     {
-        return new PaszportUser($this->user_id, $this->stream_id);
+        return new PaszportUser($this->getOptions());
     }
 
     public function deletefield($model, $object_id, $field)

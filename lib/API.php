@@ -35,7 +35,7 @@ class API
             $this->user_id = $options['user_id'];
         
         if( isset($options['stream_id']) && $options['stream_id'] )
-	        $this->stream_id = $options['stream_id'];
+	        $this->stream_id = $options['stream_id'];	        
     }
 
     private function getRequestURL($resource)
@@ -57,12 +57,12 @@ class API
         $url = $this->getRequestURL($resource);
         $query = http_build_query($params);
         $additional_headers = array();
-        if ($this->user_id) {
-            array_push($additional_headers, 'Auth-User-ID: ' . $this->user_id);
-        }
-        if ($this->stream_id) {
-            array_push($additional_headers, 'Auth-Stream-ID: ' . $this->stream_id);
-        }
+                
+        if ($this->user_id)
+            array_push($additional_headers, 'X-USER-ID: ' . $this->user_id);
+        
+        if ($this->stream_id)
+            array_push($additional_headers, 'X-STREAM-ID: ' . $this->stream_id);
 
         if (defined('MPAPI_DEVKEY'))
             array_push($additional_headers, 'X-DEVKEY: ' . MPAPI_DEVKEY);
@@ -94,6 +94,8 @@ class API
             debug($curl_options[CURLOPT_URL], true, false);
             if (!empty($params))
                 debug($params, true, false);
+            if (!empty($additional_headers))
+                debug($additional_headers, true, false);
         }
 
         $ch = curl_init();
@@ -101,9 +103,8 @@ class API
         $res_body = curl_exec($ch);
         curl_close($ch);
 
-        if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1')) {
+        if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
             debug($res_body, true, false);
-        }
 
         $this->lastResponseBody = $res_body;
         return @json_decode($res_body, 1);
@@ -173,55 +174,63 @@ class API
 		
 	    return $output;
 	}
-
+	
+	public function getOptions()
+	{
+		return array(
+			'user_id' => $this->user_id,
+			'stream_id' => $this->stream_id,
+		);
+	}
+	
     final public function Dane()
     {
-        return new Dane($this->user_id, $this->stream_id);
+        return new Dane( $this->getOptions() );
     }
 
     final public function Paszport()
     {
-        return new Paszport($this->user_id, $this->stream_id);
+        return new Paszport( $this->getOptions() );
     }
 
     final public function Powiadomienia()
     {
-        return new Powiadomienia($this->user_id, $this->stream_id);
+        return new Powiadomienia( $this->getOptions() );
     }
 
     final public function Geo()
     {
-        return new Geo($this->user_id, $this->stream_id);
+        return new Geo( $this->getOptions() );
     }
 
     final public function OAuth()
     {
-        return new OAuth();
+        return new OAuth( $this->getOptions() );
     }
 
     final public function KodyPocztowe()
     {
-        return new KodyPocztowe();
+        return new KodyPocztowe( $this->getOptions() );
     }
 
     final public function PanstwoInternet()
     {
-        return new PanstwoInternet();
+        return new PanstwoInternet( $this->getOptions() );
     }
 
     final public function MapaPrawa()
     {
-        return new MapaPrawa();
+        return new MapaPrawa( $this->getOptions() );
     }
 
     final public function ZamowieniaPubliczne()
     {
-        return new ZamowieniaPubliczne();
+        return new ZamowieniaPubliczne( $this->getOptions() );
     }
     
     final public function BDL()
     {
-        return new BDL();
+        return new BDL( $this->getOptions() );
     }
 
     final public function document($id)
