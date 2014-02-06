@@ -29,12 +29,13 @@ class API
         ),
     );
 	
-    public function __construct($user_id = null, $stream_id = 1)
+    public function __construct($options = array())
     {
-        if (!is_null($user_id)) {
-            $this->user_id = $user_id;
-        }
-        $this->stream_id = $stream_id;
+        if( isset($options['user_id']) && $options['user_id'] )
+            $this->user_id = $options['user_id'];
+        
+        if( isset($options['stream_id']) && $options['stream_id'] )
+	        $this->stream_id = $options['stream_id'];
     }
 
     private function getRequestURL($resource)
