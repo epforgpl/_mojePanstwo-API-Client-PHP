@@ -12,9 +12,22 @@ class Dane extends Application
 
 
     // DATACHANNELS
-    public function getDatachannels()
+    public function getDatachannels($options = array())
     {
-        $ret = $this->request('datachannels/index');
+    	
+    	if( $options===true )
+    		$options = array(
+    			'includeContent' => true,
+    		);
+    	
+        $ret = $this->request('datachannels/index', $options);
+        
+        if( isset($ret['datachannels']) && !empty($ret['datachannels']) )
+	        foreach( $ret['datachannels'] as &$datachannel )
+	        	if( isset($datachannel['dataobjects']) && !empty($datachannel['dataobjects']) )
+		        	foreach( $datachannel['dataobjects'] as &$object )
+		        		$object = $this->interpretateObject( $object );
+		        	        
         return $ret['datachannels'];
     }
 
