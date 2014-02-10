@@ -14,6 +14,7 @@ require_once('lib/classes/Application/Paszport.php');
 require_once('lib/classes/Application/PaszportUser.php');
 require_once('lib/classes/Application/Powiadomienia.php');
 require_once('lib/classes/Application/KodyPocztowe.php');
+require_once('lib/classes/Application/KRS.php');
 require_once('lib/classes/Application/Geo.php');
 require_once('lib/classes/Application/PanstwoInternet.php');
 require_once('lib/classes/Application/MapaPrawa.php');
