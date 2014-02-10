@@ -227,6 +227,11 @@ class API
     {
         return new KRS( $this->getOptions() );
     }
+    
+    final public function Ustawy()
+    {
+        return new Ustawy( $this->getOptions() );
+    }
 
     final public function MapaPrawa()
     {
