@@ -80,7 +80,7 @@ class Powiadomienia extends Application
 	
     public function flagObject($object_id)
     {
-        return $this->request('objects/' . $object_id . '/flag', $flag, 'POST');
+        return $this->request('objects/' . $object_id . '/flag');
     }
 
     public function flagObjects($conditions, $flag)
