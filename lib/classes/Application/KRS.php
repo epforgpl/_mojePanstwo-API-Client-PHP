@@ -12,5 +12,13 @@ class KRS extends Application
         $data = @$this->request('organizations/getFeaturedByGroups');
         return @$data['groups'];
     }
+    
+    public function search($q)
+    {
+        $search = @$this->request('search', array(
+        	'q' => $q,
+        ));
+        return $search;
+    }
 
 }
