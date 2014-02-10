@@ -40,10 +40,19 @@ class Powiadomienia extends Application
 
         if (isset($this->lastSearchResponse['search']['objects']))
             foreach ($this->lastSearchResponse['search']['objects'] as $object)
-                $output[] = $this->interpretateObject($object);
-
+            {
+            	$obj = $this->interpretateObject($object);
+                $output[] = $obj;
+            }
+			
         return $output;
     }
+    
+    public function getPagination()
+    {
+        return @$this->lastSearchResponse['search']['pagination'];
+    }
+
 	
 	public function interpretateObject($object)
     {
@@ -59,7 +68,13 @@ class Powiadomienia extends Application
             $classname = 'DataObject';
         }
         $classname = 'MP\\Dane\\' . $classname;
-        return new $classname($object);
+        
+        $obj = new $classname($object);
+        
+        if( isset($object['hl_text']) && $object['hl_text'] )
+	        $obj->hl = $object['hl_text'];
+        
+        return $obj;
 
     }
 	

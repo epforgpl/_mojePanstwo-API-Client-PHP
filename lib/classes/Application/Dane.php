@@ -151,7 +151,12 @@ class Dane extends Application
             $classname = 'DataObject';
         }
         $classname = 'MP\\Dane\\' . $classname;
-        return new $classname($object);
+        $obj = new $classname($object);
+        
+        if( isset($object['hl_text']) && $object['hl_text'] )
+	        $obj->hl = $object['hl_text'];
+        
+        return $obj;
 
     }
 

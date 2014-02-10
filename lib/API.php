@@ -8,7 +8,7 @@ class API
     protected $requests_prefix = '/';
     public $lastResponseBody = false;
     protected $user_id = null;
-    protected $stream_id = 1;
+    protected $stream_id = false;
 
     protected $strings = array(
         'miesiace' => array(
@@ -31,11 +31,7 @@ class API
 	
     public function __construct($options = array())
     {
-        if( isset($options['user_id']) && $options['user_id'] )
-            $this->user_id = $options['user_id'];
-        
-        if( isset($options['stream_id']) && $options['stream_id'] )
-	        $this->stream_id = $options['stream_id'];	        
+    	$this->setOptions( $options );
     }
 
     private function getRequestURL($resource)
@@ -181,6 +177,15 @@ class API
 			'user_id' => $this->user_id,
 			'stream_id' => $this->stream_id,
 		);
+	}
+	
+	public function setOptions($options = array())
+	{
+		if( isset($options['user_id']) && $options['user_id'] )
+            $this->user_id = $options['user_id'];
+        
+        if( isset($options['stream_id']) && $options['stream_id'] )
+	        $this->stream_id = $options['stream_id'];
 	}
 	
     final public function Dane()
