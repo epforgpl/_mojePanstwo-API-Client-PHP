@@ -78,12 +78,12 @@ class Powiadomienia extends Application
 
     }
 	
-    public function markObject($object_id, $flag)
+    public function flagObject($object_id)
     {
         return $this->request('objects/' . $object_id . '/flag', $flag, 'POST');
     }
 
-    public function markObjects($conditions, $flag)
+    public function flagObjects($conditions, $flag)
     {
         return $this->request('objects/flag', array(
             'conditions' => $conditions,
