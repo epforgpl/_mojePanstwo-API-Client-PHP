@@ -206,11 +206,13 @@ class DataObject extends \MP\API
 		return $output;
 	}
 	
-	public function getHiglightedFields( $fields = false )
+	public function getHiglightedFields( $fields = false, $fieldsPush = false )
 	{
 		$output = array();
 		
 		$fields = ($fields===false) ? $this->hl_fields : $fields;
+		if( $fieldsPush && !in_array($fieldsPush, $fields) )
+			array_unshift($fields, $fieldsPush);
 		
 		if( !empty($fields) )
 			foreach( $fields as $fieldname )

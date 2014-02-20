@@ -11,6 +11,10 @@ class Twitter_accounts extends DocDataObject
 		array('liczba_wzmianek_rts', 'Liczba wzmianek', 'integer'),
 		array('liczba_odpowiedzi_rts', 'Liczba odpowiedzi', 'integer'),
 		array('liczba_obserwujacych', 'Liczba obserwujacych', 'integer'),
+		array('liczba_tweetow_wlasnych_2013', 'Liczba tweetów w 2013 r.', 'integer'),
+		array('liczba_wzmianek_rts_2013', 'Liczba wzmianek w 2013 r.', 'integer'),
+		array('liczba_odpowiedzi_rts_2013', 'Liczba odpowiedzi w 2013 r.', 'integer'),
+		array('liczba_retweetow_wlasnych_2013', 'Liczba retweetów w 2013 r.', 'integer'),
 	);
 	
 	protected $routes = array(
