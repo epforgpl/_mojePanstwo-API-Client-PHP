@@ -10,6 +10,7 @@ class Sejm_posiedzenia_punkty extends DocDataObject
 		array('liczba_debat', 'Liczba debat', 'integer'),
 		array('liczba_wystapien', 'Liczba wystąpień', 'integer'),
 		array('liczba_glosowan', 'Liczba głosowań', 'integer'),
+		array('numer', 'Numer punktu'),
 	);
 		
     protected $routes = array(
@@ -19,7 +20,7 @@ class Sejm_posiedzenia_punkty extends DocDataObject
     );
     
     protected $hl_fields = array(
-    	'sejm_posiedzenia.tytul', 'liczba_debat', 'liczba_wystapien', 'liczba_glosowan',
+    	'sejm_posiedzenia.tytul', 'numer', 'liczba_wystapien', 'liczba_glosowan',
     );
 
     public function getLabel()
