@@ -20,5 +20,10 @@ class KRS extends Application
         ));
         return $search;
     }
+    
+    public function getOrganizationIdBy($params)
+    {
+	    return $this->request('organizations/getOrganizationIdBy', $params);
+    }
 
 }
