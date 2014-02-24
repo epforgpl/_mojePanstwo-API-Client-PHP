@@ -7,7 +7,7 @@ class Sejm_druki extends DocDataObject
 	
 	protected $schema = array(
 		array('druk_typ_nazwa', 'Typ druku'),
-		array('numer', 'Numer')
+		array('numer', 'Numer druku')
 	);
 	
     protected $routes = array(

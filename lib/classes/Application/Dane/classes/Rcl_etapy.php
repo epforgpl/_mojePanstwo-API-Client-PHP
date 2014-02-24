@@ -4,12 +4,18 @@ namespace MP\Dane;
 
 class Rcl_etapy extends DocDataObject
 {
-
-    protected $_fields = array(
+	
+	protected $schema = array(
+		array('tytul_projektu', 'Dotyczy projektu'),
+	);
+	
+    protected $routes = array(
         'shortTitle' => 'rcl_etapy_typy.tytul',
         'date' => 'data',
     );
 
+	public $hl_fields = array('tytul_projektu');
+	
     public function getLabel()
     {
         return 'Etap w pracach legislacyjnych rządu';

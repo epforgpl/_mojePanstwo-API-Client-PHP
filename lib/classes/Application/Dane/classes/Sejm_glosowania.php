@@ -13,6 +13,7 @@ class Sejm_glosowania extends DocDataObject
 			),
 		)),
 		array('numer', 'Numer głosowania'),
+		array('wynik_id', 'Wynik', 'vote'),
 	);
 	
     protected $routes = array(
@@ -23,7 +24,7 @@ class Sejm_glosowania extends DocDataObject
     );
     
     protected $hl_fields = array(
-    	'sejm_posiedzenia.tytul', 'numer'
+    	'sejm_posiedzenia.tytul', 'numer', 'wynik_id'
     );
     
     public function getLabel()
