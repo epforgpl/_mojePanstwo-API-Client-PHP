@@ -11,6 +11,7 @@ class Legislacja_projekty_uchwal extends DocDataObject
 			'truncate' => 120,
 		)),
 		array('status_str', 'Status'),
+		array('data', 'Data', 'date')
 	);
 	
     protected $routes = array(
@@ -27,6 +28,11 @@ class Legislacja_projekty_uchwal extends DocDataObject
     public function getLabel()
     {
         return 'Projekt uchwały Sejmu';
+    }
+    
+    public function getFullLabel()
+    {
+        return 'Projekt uchwały Sejmu z ' . dataSlownie( $this->getDate() );
     }
 
 }
