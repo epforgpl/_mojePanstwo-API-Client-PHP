@@ -21,11 +21,12 @@ class Sejm_wystapienia extends DocDataObject
 		)),
 		array('sejm_debaty.tytul', 'Debata', 'string', array(
 			'truncate' => 90,
-		))
+		)),
+		array('data', 'Data wystąpienia', 'date'),
 	);
 	
     protected $routes = array(
-        'title' => 'tytul',
+        'title' => 'skrot',
         'shortTitle' => false,
         'date' => 'data',
     );

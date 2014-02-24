@@ -25,5 +25,10 @@ class Sejm_druki extends DocDataObject
     {
         return 'Druk sejmowy';
     }
+    
+    public function getFullLabel()
+    {
+        return 'Druk sejmowy z dnia' . dataSlownie( $this->getDate() );
+    }
 
 }

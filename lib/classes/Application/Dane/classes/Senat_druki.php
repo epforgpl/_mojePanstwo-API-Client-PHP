@@ -23,5 +23,10 @@ class Senat_druki extends DocDataObject
     {
         return 'Druk senacki';
     }
+    
+    public function getFullLabel()
+    {
+        return 'Druk senacki z dnia ' . dataSlownie( $this->getDate() );
+    }
 
 }

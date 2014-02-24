@@ -81,6 +81,10 @@ class Twitter extends DocDataObject
     {
         return false;
     }
-
+	
+	public function getFullLabel()
+	{
+		return $this->getLabel() . ' z ' . dataSlownie( $this->getTime() );
+	}
 
 } 

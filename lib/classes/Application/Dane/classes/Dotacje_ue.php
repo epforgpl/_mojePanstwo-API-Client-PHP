@@ -30,7 +30,7 @@ class Dotacje_ue extends DataObject
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
-        'date' => 'data_rozpoczecia',
+        'date' => 'data_podpisania',
     );
     
     protected $hl_fields =array(

@@ -25,7 +25,7 @@ class Poslowie_wspolpracownicy extends DocDataObject
 	
     public function getLabel()
     {
-        return 'Współpracownik poseł';
+        return 'Współpracownik posła';
     }
 
     public function getTitle()

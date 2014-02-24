@@ -145,6 +145,11 @@ class DataObject extends \MP\API
     {
         return $this->getData($this->routes['label']);
     }
+    
+    public function getFullLabel()
+    {
+        return $this->getLabel();
+    }
 
     public function getHlText()
     {
@@ -211,8 +216,14 @@ class DataObject extends \MP\API
 		$output = array();
 		
 		$fields = ($fields===false) ? $this->hl_fields : $fields;
-		if( $fieldsPush && !in_array($fieldsPush, $fields) )
+		if(
+			$fieldsPush && 
+			!in_array($fieldsPush, $fields) && 
+			( $schema = $this->getSchemaForFieldname( $fieldsPush ) ) && 
+			!( isset($schema[3]) && isset($schema[3]['noHl']) && $schema[3]['noHl'] )
+		)
 			array_unshift($fields, $fieldsPush);
+
 		
 		if( !empty($fields) )
 			foreach( $fields as $fieldname )

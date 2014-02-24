@@ -8,6 +8,7 @@ class Zamowienia_publiczne extends DocDataObject
 	protected $schema = array(
 		array('zamawiajacy_nazwa', 'Zamawiający'),
 		array('zamawiajacy_miejscowosc', 'Miejscowość'),
+		array('data_publikacji', 'Data publikacji', 'date'),
 	);
 	
     protected $routes = array(

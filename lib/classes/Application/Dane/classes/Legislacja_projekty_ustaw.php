@@ -11,6 +11,7 @@ class Legislacja_projekty_ustaw extends DocDataObject
 			'truncate' => 120,
 		)),
 		array('status_str', 'Status'),
+		array('data', 'Data', 'date')
 	);
 	
     protected $routes = array(
@@ -27,6 +28,11 @@ class Legislacja_projekty_ustaw extends DocDataObject
     public function getLabel()
     {
         return 'Projekt ustawy';
+    }
+    
+    public function getFullLabel()
+    {
+        return 'Projekt ustawy z ' . dataSlownie( $this->getDate() );
     }
 
 }

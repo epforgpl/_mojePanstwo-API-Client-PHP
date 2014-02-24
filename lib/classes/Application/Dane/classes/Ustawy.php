@@ -31,5 +31,10 @@ class Ustawy extends DataObject
     {
         return 'Ustawa';
     }
+    
+    public function getFullLabel()
+    {
+        return 'Ustawa z dnia ' . dataSlownie( $this->getData('data_wydania') );
+    }
 
 }
