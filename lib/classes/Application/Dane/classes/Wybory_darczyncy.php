@@ -4,12 +4,18 @@ namespace MP\Dane;
 
 class Wybory_darczyncy extends DocDataObject
 {
-
+	
+	protected $schema = array(
+		array('rady_gmin_komitety.skrot_nazwy', 'Obdarowany komitet', 'string'),
+	);
+	
+	public $hl_fields = array(
+		'rady_gmin_komitety.skrot_nazwy'
+	);
+	
     public function getUrl()
     {
-
         return false;
-
     }
 
     public function getTitle()
@@ -20,8 +26,13 @@ class Wybory_darczyncy extends DocDataObject
 
     public function getShortTitle()
     {
-        return $this->getData('imie') . ' ' . $this->getData('nazwisko') . ' - ' . number_format($this->getData('wartosc_kwota'), 2, ',', ' ') . ' PLN';
+        return $this->getData('imie') . ' ' . $this->getData('nazwisko');
 
+    }
+    
+    public function getTitleAddon()
+    {
+	    return number_format($this->getData('wartosc_kwota'), 0, '', ' ') . ' PLN';
     }
 
     public function getLabel()

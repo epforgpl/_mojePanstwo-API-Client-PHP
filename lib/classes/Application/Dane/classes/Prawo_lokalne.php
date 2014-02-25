@@ -9,7 +9,8 @@ class Prawo_lokalne extends DocDataObject
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',
         'date' => 'data_wydania',
-        'label' => 'label'
+        'label' => 'label',
+        'description' => 'opis',
     );
 
     public function getLabel()

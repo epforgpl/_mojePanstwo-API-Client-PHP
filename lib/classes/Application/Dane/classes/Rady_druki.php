@@ -13,7 +13,7 @@ class Rady_druki extends DocDataObject
 
     public function getLabel()
     {
-        return 'Druk w pracach rady gminy';
+        return 'Druk w pracach rady gminy <a href="/dane/gminy/903">Kraków</a>';
     }
 
 }
