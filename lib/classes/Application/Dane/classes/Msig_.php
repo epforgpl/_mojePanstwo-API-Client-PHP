@@ -2,7 +2,7 @@
 
 namespace MP\Dane;
 
-class MSiG extends DocDataObject
+class Msig extends DocDataObject
 {
 
     protected $routes = array(
