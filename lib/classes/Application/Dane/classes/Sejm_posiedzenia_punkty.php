@@ -2,11 +2,16 @@
 
 namespace MP\Dane;
 
-class Sejm_posiedzenia_punkty extends DocDataObject
+class Sejm_posiedzenia_punkty extends DataObject
 {
 	
 	protected $schema = array(
-		array('sejm_posiedzenia.tytul', 'Posiedzenie'),
+		array('sejm_posiedzenia.tytul', 'Posiedzenie', 'string', array(
+			'link' => array(
+				'dataset' => 'sejm_posiedzenia',
+				'object_id' => '$sejm_posiedzenia.id',
+			),
+		)),
 		array('liczba_debat', 'Liczba debat', 'integer'),
 		array('liczba_wystapien', 'Liczba wystąpień', 'integer'),
 		array('liczba_glosowan', 'Liczba głosowań', 'integer'),
