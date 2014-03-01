@@ -12,6 +12,7 @@ class Dotacje_ue extends DataObject
 				'dataset' => 'dotacje_ue_beneficjenci',
 				'object_id' => '$beneficjent_id',
 			),
+			'truncate' => 50,
 		)),
 		array('data_podpisania', 'Data podpisania umowy', 'date'),
 		array('data_rozpoczecia', 'Data rozpoczęcia realizacji', 'date'),
@@ -34,7 +35,7 @@ class Dotacje_ue extends DataObject
     );
     
     protected $hl_fields =array(
-    	'beneficjent_nazwa', 'wartosc_ogolem', 'dofinansowanie_ue'
+    	'symbol', 'beneficjent_nazwa', 'wartosc_ogolem', 'dofinansowanie_ue'
     );
 		
     public function getLabel()

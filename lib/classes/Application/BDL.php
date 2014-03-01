@@ -7,10 +7,11 @@ class BDL extends Application
 
     protected $requests_prefix = '/bdl/';
 
-    public function getDataForDimmesions( $dims )
+    public function getDataForDimmesions( $dims, $podgrupa_id )
     {
         $data = @$this->request('dataForDimmesions', array(
         	'dims' => $dims,
+        	'podgrupa_id' => $podgrupa_id,
         ));
         return @$data['data'];
     }
