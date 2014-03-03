@@ -89,6 +89,20 @@ class Dane extends Application
         }
 
     }
+    
+    public function getDatasetMap($alias, $page)
+    {
+        if ($alias && $page) {
+            $ret = @$this->request('dataset/' . $alias . '/map', array(
+            	'page' => $page,
+            ));
+            return $ret['map'];
+        } else {
+            return false;
+        }
+
+    }
+    
 
     public function getDatachannel($alias)
     {
