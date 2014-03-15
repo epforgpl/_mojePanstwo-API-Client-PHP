@@ -18,11 +18,12 @@ class Legislacja_projekty_ustaw extends DocDataObject
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',
         'date' => 'data',
-        'label' => 'label'
+        'label' => 'label',
+        'description' => 'opis',
     );
     
     protected $hl_fields = array(
-    	'autorzy_html', 'opis', 'status_str'
+    	'autorzy_html', 'status_str'
     );
 
     public function getLabel()
