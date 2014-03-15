@@ -15,5 +15,9 @@ class Gminy extends DataObject
     {
         return 'http://resources.sejmometr.pl/gminy/thumbs/png/' . $this->getId() . '.png';
     }
-
+	
+	public function hasHighlights()
+    {
+        return false;
+    }
 }

@@ -14,5 +14,10 @@ class Powiaty extends DataObject
     {
         return 'Powiat';
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

@@ -27,5 +27,10 @@ class Miejscowosci extends DataObject
     {
         return 'Miejscowość';
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

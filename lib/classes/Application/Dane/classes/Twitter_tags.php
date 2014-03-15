@@ -25,4 +25,9 @@ class Twitter_tags extends DocDataObject
     {
         return $this->getData('tag');
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 } 

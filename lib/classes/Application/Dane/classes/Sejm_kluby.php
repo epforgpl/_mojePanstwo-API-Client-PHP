@@ -27,5 +27,10 @@ class Sejm_kluby extends DocDataObject
     {
 	    return 'http://resources.sejmometr.pl/s_kluby/' . $this->getId() . '_t.png';
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

@@ -25,4 +25,9 @@ class Senatorowie extends DocDataObject
     {
         return $this->getData('nazwa');
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 } 

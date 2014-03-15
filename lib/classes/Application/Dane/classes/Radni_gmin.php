@@ -40,5 +40,10 @@ class Radni_gmin extends DataObject
         $output .= ' gminy <a href="/dane/gminy/' . $this->getData('gmina_id') . '">' . $this->getData('gminy.nazwa') . '</a>';
         return $output;
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

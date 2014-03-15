@@ -19,5 +19,10 @@ class Senatorowie_oswiadczenia_majatkowe extends DocDataObject
     {
         return 'Oświadczenie majątkowe senatora';
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

@@ -14,5 +14,9 @@ class Kolej_stacje extends DataObject
     {
         return 'Stacja kolejowa';
     }
-
+	
+	public function hasHighlights()
+    {
+        return false;
+    }
 }

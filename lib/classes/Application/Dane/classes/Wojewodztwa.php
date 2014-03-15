@@ -14,5 +14,10 @@ class Wojewodztwa extends DataObject
     {
         return 'Województwo';
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

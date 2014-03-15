@@ -46,4 +46,9 @@ class Krs_osoby extends DataObject
 	    	
     	return parent::getData( $field );        
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 }

@@ -60,5 +60,10 @@ class Krs_podmioty extends DataObject
     {
         return _ucfirst($this->getData('forma_prawna_str'));
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

@@ -41,5 +41,10 @@ class Wybory_darczyncy extends DocDataObject
         return 'Darowizna na rzecz komitetu wyborczego';
 
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }

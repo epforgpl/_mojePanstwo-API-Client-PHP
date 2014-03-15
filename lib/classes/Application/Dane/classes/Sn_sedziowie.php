@@ -30,4 +30,9 @@ class Sn_sedziowie extends DocDataObject
     {
         return false;
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 } 

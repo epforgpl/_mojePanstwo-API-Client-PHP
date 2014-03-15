@@ -20,5 +20,10 @@ class Sejm_posiedzenia extends DocDataObject
     {
         return 'Posiedzenie Sejmu nr ' . $this->getData('numer');
     }
+    
+    public function hasHighlights()
+    {
+        return false;
+    }
 
 }
