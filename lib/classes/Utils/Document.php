@@ -65,6 +65,14 @@ class Document extends API
     }
 
     /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->data['url'];
+    }
+    
+    /**
      * @return int
      */
     public function getPagesCount()
