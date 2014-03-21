@@ -89,6 +89,18 @@ class DataObject extends \MP\API
     {
         return @!empty($this->layers['related']['groups']);
     }
+    
+    public function getRelatedGroup($id)
+    {
+	    if( $this->hasRelated() )
+	    {
+		    
+		    foreach( $this->layers['related']['groups'] as $group )
+			    if( $group['id'] == $id )
+			    	return $group;
+			    	
+	    } else return false;
+    }
 
     public function getObject()
     {
