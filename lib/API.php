@@ -247,6 +247,11 @@ class API
     {
         return new BDL( $this->getOptions() );
     }
+    
+    final public function Sejmometr()
+    {
+        return new Sejmometr( $this->getOptions() );
+    }
 
     final public function document($id)
     {
