@@ -45,8 +45,10 @@ class API
 
         if (!$resource)
             return false;
-
-        if (!in_array($method, array('GET', 'POST')))
+		
+		
+		
+        if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
             $method = 'GET';
 
 
@@ -71,20 +73,26 @@ class API
         );
 
 
-        if ($method == 'GET') {
-
-            $curl_options[CURLOPT_URL] = $url;
-            if ($query)
-                $curl_options[CURLOPT_URL] .= '?' . $query;
-
-        } elseif ($method == 'POST') {
-
-            $curl_options[CURLOPT_URL] = $url;
+        if ($method == 'POST') {
+			
             $curl_options[CURLOPT_POST] = true;
-            $curl_options[CURLOPT_POSTFIELDS] = $query;
-
+            $curl_options[CURLOPT_POSTFIELDS] = $query;            
+		
+		} elseif($method == 'DELETE') {
+			
+			$curl_options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
+			
         }
+        
 
+        $curl_options[CURLOPT_URL] = $url;
+        if ($query)
+            $curl_options[CURLOPT_URL] .= '?' . $query;
+
+			
+		
+		
+		
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1')) {
             debug($curl_options[CURLOPT_URL], true, false);

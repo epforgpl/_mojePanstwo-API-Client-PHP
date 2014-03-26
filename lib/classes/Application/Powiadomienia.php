@@ -15,8 +15,10 @@ class Powiadomienia extends Application
     }
 
     public function addPhrase($phrase)
-    {
-        return $this->request('phrases', $phrase, 'POST');
+    {	
+        return $this->request('phrases', array(
+        	'q' => $phrase
+        ), 'POST');
     }
 
     public function removePhrase($phrase_id)
