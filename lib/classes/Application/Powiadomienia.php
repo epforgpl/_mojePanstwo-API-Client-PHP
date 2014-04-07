@@ -8,6 +8,9 @@ class Powiadomienia extends Application
     protected $requests_prefix = '/powiadomienia/';
 	private $lastSearchResponse = array();
 	
+	
+	// PHRASES
+	
     public function getPhrases()
     {
         $ret = @$this->request('phrases');
@@ -25,11 +28,42 @@ class Powiadomienia extends Application
     {
         return $this->request('phrases/' . $phrase_id, array(), 'DELETE');
     }
+    
+    
+    // GROUPS
+    
+    public function getGroups()
+    {
+        return @$this->request('groups');
+    }
+
+    public function addGroup($params)
+    {	
+        return $this->request('groups', array(
+        	'params' => $params
+        ), 'POST');
+    }
+
+    public function removeGroup($group_id)
+    {
+        return $this->request('groups/' . $group_id, array(), 'DELETE');
+    }
+    
 
     public function search($queryData = array())
     {
         if (!is_null($this->user_id)) {
             $this->lastSearchResponse = $this->request('objects', $queryData, 'POST');
+            return $this->lastSearchResponse;
+        } else {
+            return false;
+        }
+    }
+    
+    public function _search($queryData = array())
+    {
+        if (!is_null($this->user_id)) {
+            $this->lastSearchResponse = $this->request('_objects', $queryData, 'POST');
             return $this->lastSearchResponse;
         } else {
             return false;

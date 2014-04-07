@@ -165,7 +165,7 @@ class DataObject extends \MP\API
 
     public function getHlText()
     {
-        return $this->hl;
+        return str_replace("\r", "<br/>", $this->hl);
     }
 
     public function getUrl($options = array())
