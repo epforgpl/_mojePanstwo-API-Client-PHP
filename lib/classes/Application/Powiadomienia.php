@@ -127,5 +127,12 @@ class Powiadomienia extends Application
         ), 'POST');
 
     }
+    
+    public function getAlertsQueries($object_id)
+    {
+	    if( $object_id )
+	    	return $this->request('alertsQueries/' . $object_id);
+		return false;  
+    }
 
 }

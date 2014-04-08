@@ -265,5 +265,5 @@ class DataObject extends \MP\API
         }
         return $this->$func;
     }
-
+    
 }
