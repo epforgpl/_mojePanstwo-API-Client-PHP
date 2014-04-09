@@ -15,7 +15,11 @@ class Coe_sittings extends DataObject
 	
     public function getTitle()
     {
-        return 'Session / ' . $this->getData('time_str');
+    	$session_title = $this->getData('coe_sessions.title');
+    	if( !$session_title )
+    		$session_title = 'Session';
+    		
+        return $session_title . ' / ' . $this->getData('time_str');
     }
 
     public function getShortTitle()
