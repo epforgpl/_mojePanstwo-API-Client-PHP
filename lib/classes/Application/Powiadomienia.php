@@ -119,13 +119,25 @@ class Powiadomienia extends Application
         return $this->request('objects/' . $object_id . '/flag');
     }
 
-    public function flagObjects($conditions, $flag)
+	public function _flagObject($object_id, $action)
     {
-        return $this->request('objects/flag', array(
-            'conditions' => $conditions,
-            'flag' => $flag,
-        ), 'POST');
-
+        return $this->request('_objects/' . $object_id . '/flag', array(
+        	'action' => $action,
+        ));
+    }
+    
+    public function _flagGroup($group_id, $action)
+    {
+        return $this->request('groups/' . $group_id . '/flag', array(
+        	'action' => $action,
+        ));
+    }
+    
+    public function _flagObjects($action)
+    {
+        return $this->request('_objects/flag', array(
+        	'action' => $action,
+        ));
     }
     
     public function getAlertsQueries($object_id)
