@@ -23,7 +23,7 @@ class Geo extends Application
         if (is_null($id)) {
             return false;
         }
-        return $this->request('powiaty/index/' . $id);
+        return $this->request('powiaty/' . $id);
     }
 
     public function gminy($id = null)
@@ -31,7 +31,7 @@ class Geo extends Application
         if (is_null($id)) {
             return false;
         }
-        return $this->request('gminy/index/' . $id);
+        return $this->request('gminy/' . $id);
     }
 
     public function resolve($lat = null, $lng = null)
