@@ -18,6 +18,7 @@ class DataObject extends \MP\API
         'description' => 'opis',
         'label' => 'label',
         'titleAddon' => false,
+        'position' => false,
     );
     
     protected $routes = array();
@@ -146,6 +147,11 @@ class DataObject extends \MP\API
     public function getDescription()
     {
         return $this->getData($this->routes['description']);
+    }
+    
+    public function getPosition()
+    {
+	    return $this->getData($this->routes['position']);
     }
     
     public function getTitleAddon()

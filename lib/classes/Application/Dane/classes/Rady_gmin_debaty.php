@@ -26,6 +26,7 @@ class Rady_gmin_debaty extends DocDataObject
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'rady_gmin_posiedzenia.data',
+        'position' => 'numer_punktu',
     );
     
     protected $hl_fields = array(
