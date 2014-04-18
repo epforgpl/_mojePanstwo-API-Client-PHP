@@ -62,4 +62,9 @@ class Radni_dzielnic extends DataObject
     {
         return false;
     }
+    
+    public function getLabel()
+    {
+	    return 'Radny dzielnicy';
+    }
 }

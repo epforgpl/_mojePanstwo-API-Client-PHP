@@ -19,6 +19,7 @@ class Rady_gmin_wystapienia extends DocDataObject
 				'object_id' => '$rady_gmin_posiedzenia.id',
 			),
 		)),
+		array('rady_gmin_posiedzenia.data', 'Data', 'date')
 	);
 	
     protected $routes = array(

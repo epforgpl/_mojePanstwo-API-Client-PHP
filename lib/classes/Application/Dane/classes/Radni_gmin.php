@@ -12,9 +12,6 @@ class Radni_gmin extends DataObject
 				'object_id' => '$gminy.id',
 			),
 		)),
-		array('rady_gmin_komitety.nazwa', 'Komitet wyborczy'),
-		array('liczba_glosow', 'Liczba głosów', 'integer'),
-		array('procent_glosow_w_okregu', 'Popracie', 'percent'),
 		array('oswiadczenie_id', 'Powiązania ze służbami PRL', 'string', array(
 			'dictionary' => array(
 				'1' => 'Praca',
@@ -23,7 +20,27 @@ class Radni_gmin extends DataObject
 				'4' => 'Brak danych',
 			),
 		)),
+
+
+
+		array('rady_gmin_komitety.nazwa', 'Komitet wyborczy'),
+		array('poparcie', 'Poparcie', 'string'),
+		array('rady_gmin_okregi.nr_okregu', 'Numer okręgu', 'integer'),
+
+		array('numer_listy', 'Numer listy', 'string'),
+		array('pozycja', 'Pozycja na liście', 'integer'),
+
+		array('liczba_glosow', 'Liczba głosów', 'integer'),
+		array('procent_glosow_w_okregu', 'Popracie w okręgu', 'percent'),
+
+		array('miejsce_zamieszkania', 'Miejsce zamieszkania', 'string'),
+		array('obywatelstwo', 'Obywatelstwo', 'string'),
 	);	
+	
+	
+	
+	
+	
 	
     protected $routes = array(
         'title' => 'nazwa',
@@ -31,7 +48,7 @@ class Radni_gmin extends DataObject
     );
     
     protected $hl_fields = array(
-    	'gminy.nazwa', 'rady_gmin_komitety.nazwa', 'liczba_glosow', 'procent_glosow_w_okregu', 'oswiadczenie_id'
+    	'gminy.nazwa', 'rady_gmin_komitety.nazwa', 'liczba_glosow', 'oswiadczenie_id'
     );
 
     public function getLabel()
