@@ -6,8 +6,7 @@ class Kody_pocztowe extends DataObject
 {
 	
 	protected $schema = array(
-		array('wojewodztwo', 'Województwo'),
-		array('miejscowosci_str', 'Miejscowości'),
+		array('gminy_str', 'Gminy'),
 	);
 	
     protected $routes = array(
@@ -15,7 +14,7 @@ class Kody_pocztowe extends DataObject
         'shortTitle' => 'kod',
     );
 	
-	protected $hl_fields = array('wojewodztwo', 'miejscowosci_str');
+	protected $hl_fields = array('gminy_str');
 	
     public function getLabel()
     {
