@@ -146,5 +146,10 @@ class Powiadomienia extends Application
 	    	return $this->request('alertsQueries/' . $object_id);
 		return false;  
     }
+    
+    public function getApps()
+    {
+	    return $this->request('apps');
+    }
 
 }
