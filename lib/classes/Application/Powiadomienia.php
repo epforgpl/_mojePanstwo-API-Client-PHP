@@ -32,6 +32,11 @@ class Powiadomienia extends Application
     
     // GROUPS
     
+    public function getGroup($id)
+    {
+	    return @$this->request('groups/' . $id);
+    }
+    
     public function getGroups()
     {
         return @$this->request('groups');

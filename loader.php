@@ -7,6 +7,7 @@ require_once('lib/classes/Utils/Document.php');
 require_once('lib/classes/Utils/Obszary.php');
 
 require_once('lib/classes/Application.php');
+require_once('lib/classes/Exception.php');
 require_once('lib/classes/Application/Dane.php');
 require_once('lib/classes/Application/Dane/DataObject.php');
 require_once('lib/classes/Application/Dane/classes/DocDataObject.php');
