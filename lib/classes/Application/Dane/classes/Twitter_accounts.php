@@ -35,7 +35,12 @@ class Twitter_accounts extends DocDataObject
     {
         return 'Konto na Twitterze';
     }
-
+	
+	public function getDescription()
+	{
+		return $this->getData('description');
+	}
+	
     public function getThumbnailUrl($size = false)
     {
         $url = $this->getData('profile_image_url');
