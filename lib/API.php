@@ -2,6 +2,8 @@
 
 namespace MP;
 
+require_once('exceptions.php');
+
 class API
 {
 
@@ -41,15 +43,11 @@ class API
 
     public function request($resource, $params = array(), $method = 'GET')
     {
-
         if (!$resource)
-            return false;
-		
-		
-		
-        if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
-            $method = 'GET';
+            throw new ApiBadInvocation('Resource has to be specified');
 
+        if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
+            throw new RequestMethodNotSupported('GET');
 
         $url = $this->getRequestURL($resource);
         $query = http_build_query($params);
@@ -65,30 +63,22 @@ class API
             CURLOPT_AUTOREFERER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FAILONERROR => false, // doesn't fail on http errors
             CURLOPT_HTTPHEADER => $additional_headers,
         );
 
 
         if ($method == 'POST') {
-			
             $curl_options[CURLOPT_POST] = true;
             $curl_options[CURLOPT_POSTFIELDS] = $query;            
 		
 		} elseif($method == 'DELETE') {
-			
 			$curl_options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
-			
         }
-        
 
         $curl_options[CURLOPT_URL] = $url;
         if ($query)
             $curl_options[CURLOPT_URL] .= '?' . $query;
-
-			
-		
-		
-		
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1')) {
             debug($curl_options[CURLOPT_URL], true, false);
@@ -101,14 +91,27 @@ class API
         $ch = curl_init();
         curl_setopt_array($ch, $curl_options);
         $res_body = curl_exec($ch);
+
+        // check error status
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curl_errno = curl_errno($ch);
+        $curl_error = curl_error($ch);
+
         curl_close($ch);
+
+        if ($curl_errno) {
+            throw new ApiConnectionException($curl_errno, $curl_error);
+        }
+
+        if ($http_status >= 400) {
+            throw new ApiHttpError($http_status, $res_body);
+        }
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
             debug($res_body, true, false);
 
         $this->lastResponseBody = $res_body;
         return @json_decode($res_body, 1);
-
     }
 
     public function dataSlownie($data)

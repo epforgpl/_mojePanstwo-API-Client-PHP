@@ -36,9 +36,9 @@ class PaszportUser extends Paszport
         return $this->request('add', $params);
     }
 
-    public function delete()
+    public function delete($params = array())
     {
-        return $this->request('delete');
+        return $this->request('delete', $params);
     }
 
     public function reset($data)
