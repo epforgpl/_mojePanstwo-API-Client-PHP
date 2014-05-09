@@ -32,6 +32,11 @@ class Powiadomienia extends Application
     
     // GROUPS
     
+    public function getGroup($id)
+    {
+	    return @$this->request('groups/' . $id);
+    }
+    
     public function getGroups()
     {
         return @$this->request('groups');
@@ -145,6 +150,11 @@ class Powiadomienia extends Application
 	    if( $object_id )
 	    	return $this->request('alertsQueries/' . $object_id);
 		return false;  
+    }
+    
+    public function getApps()
+    {
+	    return $this->request('apps');
     }
 
 }

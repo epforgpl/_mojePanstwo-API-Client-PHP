@@ -20,6 +20,7 @@ class Radni_dzielnic extends DataObject
 		)),
 		array('liczba_glosow', 'Liczba głosów', 'integer'),
 		array('okreg_numer', 'Okręg wyborczy', 'string'),
+		array('okreg_ulice', 'Ulice w okręgu', 'string'),
 		array('partia_wspierany_przez', 'Wspierany przez', 'string'),
 
 		array('dyzur', 'Dyżur', 'string'),

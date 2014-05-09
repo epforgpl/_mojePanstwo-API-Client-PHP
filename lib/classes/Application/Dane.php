@@ -136,17 +136,15 @@ class Dane extends Application
 
     public function getObject($dataset, $id)
     {
-
-        $object = $this->searchDataset($dataset, array(
-            'conditions' => array(
-                'object_id' => $id,
-            ),
-            'limit' => 1,
-        ));
-
-        if ($object['dataobjects'])
-            return $this->interpretateObject($object['dataobjects'][0]);
-
+		
+		$response = $this->request($dataset . '/' . $id);
+		
+		if( $response && isset($response['object']) && !empty($response['object']) ) {
+			
+			return $this->interpretateObject( $response['object'] );
+		
+		} else throw new Exception('Object not found', $response);
+		
         return false;
 
     }
