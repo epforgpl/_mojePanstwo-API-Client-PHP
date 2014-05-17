@@ -42,11 +42,9 @@ class Powiadomienia extends Application
         return @$this->request('groups');
     }
 
-    public function addGroup($params)
+    public function saveGroup($params)
     {	
-        return $this->request('groups', array(
-        	'params' => $params
-        ), 'POST');
+        return $this->request('groups', $params, 'POST');
     }
 
     public function removeGroup($group_id)

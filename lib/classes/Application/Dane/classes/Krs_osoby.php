@@ -30,7 +30,10 @@ class Krs_osoby extends DataObject
     
     public function getTitleAddon()
     {
-	    return $this->pl_dopelniacz($this->pl_wiek( $this->data('data_urodzenia') ), 'rok', 'lata', 'lat');
+    	if( $this->data['privacy']=='1' )
+    		return false;
+    	else
+		    return $this->pl_dopelniacz($this->pl_wiek( $this->data('data_urodzenia') ), 'rok', 'lata', 'lat');
     }
 	
 	public function getData($field = '*')
