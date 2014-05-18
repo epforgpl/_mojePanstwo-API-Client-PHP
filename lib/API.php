@@ -43,12 +43,13 @@ class API
 
     public function request($resource, $params = array(), $method = 'GET')
     {
+    	    	    	
         if (!$resource)
             throw new ApiBadInvocation('Resource has to be specified');
-
+				
         if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
             throw new RequestMethodNotSupported('GET');
-
+			
         $url = $this->getRequestURL($resource);
         $query = http_build_query($params);
         $additional_headers = array();
@@ -98,7 +99,8 @@ class API
         $curl_error = curl_error($ch);
 
         curl_close($ch);
-
+		
+		/*
         if ($curl_errno) {
             throw new ApiConnectionException($curl_errno, $curl_error);
         }
@@ -106,6 +108,7 @@ class API
         if ($http_status >= 400) {
             throw new ApiHttpError($http_status, $res_body);
         }
+        */
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
             debug($res_body, true, false);

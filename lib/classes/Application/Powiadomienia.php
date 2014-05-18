@@ -131,8 +131,9 @@ class Powiadomienia extends Application
     
     public function _flagGroup($group_id, $action)
     {
-        return $this->request('groups/' . $group_id . '/flag', array(
+        return $this->request('_objects/flag', array(
         	'action' => $action,
+        	'group_id' => $group_id,
         ));
     }
     
