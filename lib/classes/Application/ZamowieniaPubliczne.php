@@ -12,5 +12,10 @@ class ZamowieniaPubliczne extends Application
         $data = @$this->request('stats');
         return @$data['stats'];
     }
+    
+    public function getNewStats()
+    {
+        return @$this->request('newstats');
+    }
 
 }
