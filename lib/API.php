@@ -99,8 +99,7 @@ class API
         $curl_error = curl_error($ch);
 
         curl_close($ch);
-		
-		/*
+
         if ($curl_errno) {
             throw new ApiConnectionException($curl_errno, $curl_error);
         }
@@ -108,7 +107,6 @@ class API
         if ($http_status >= 400) {
             throw new ApiHttpError($http_status, $res_body);
         }
-        */
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
             debug($res_body, true, false);
