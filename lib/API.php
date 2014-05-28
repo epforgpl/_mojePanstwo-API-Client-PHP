@@ -227,6 +227,11 @@ class API
         return new PanstwoInternet( $this->getOptions() );
     }
     
+    final public function Media()
+    {
+        return new Media( $this->getOptions() );
+    }
+    
     final public function KRS()
     {
         return new KRS( $this->getOptions() );

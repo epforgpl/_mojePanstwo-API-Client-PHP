@@ -19,6 +19,7 @@ require_once('lib/classes/Application/KRS.php');
 require_once('lib/classes/Application/Ustawy.php');
 require_once('lib/classes/Application/Geo.php');
 require_once('lib/classes/Application/PanstwoInternet.php');
+require_once('lib/classes/Application/Media.php');
 require_once('lib/classes/Application/MapaPrawa.php');
 require_once('lib/classes/Application/ZamowieniaPubliczne.php');
 require_once('lib/classes/Application/BDL.php');
