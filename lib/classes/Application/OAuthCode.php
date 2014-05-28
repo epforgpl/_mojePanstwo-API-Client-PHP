@@ -18,9 +18,8 @@ class OAuthCode extends OAuth
         return $this->request('save', $data);
     }
 
-    public function find($type, $queryData)
+    public function findByCode($code)
     {
-        $return = $this->request('find/' . $type, $queryData);
-        return ($type == 'first') ? array_shift($return['auth_codes']) : $return['auth_codes'];
+        return $this->request('find/' . $code);
     }
 } 

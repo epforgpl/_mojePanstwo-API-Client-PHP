@@ -15,8 +15,7 @@ class OAuthRefreshToken extends OAuth
 
     public function find($type, $queryData)
     {
-        $return = $this->request('find/' . $type, $queryData);
-        return ($type == 'first') ? array_shift($return['refresh_tokens']) : $return['refresh_tokens'];
+        return $this->request('find/' . $type, $queryData);
     }
 
     public function save($data)
