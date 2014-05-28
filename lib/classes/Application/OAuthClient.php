@@ -13,9 +13,7 @@ class OAuthClient extends OAuth
 {
     public $requests_prefix = '/oauth/clients/';
 
-    public function find($type, $queryData)
-    {
-        $return = $this->request('find/' . $type, $queryData);
-        return ($type == 'first') ? array_shift($return['clients']) : $return['clients'];
+    public function getRedirectURL($client_id) {
+        return $this->request($client_id);
     }
 } 
