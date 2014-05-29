@@ -20,7 +20,6 @@ class OAuthToken extends OAuth
 
     public function find($type, $queryData)
     {
-        $return = $this->request('find/' . $type, $queryData);
-        return ($type == 'first') ? array_shift($return['access_tokens']) : $return['access_tokens'];
+        return $this->request('find/' . $type, $queryData);
     }
 } 
