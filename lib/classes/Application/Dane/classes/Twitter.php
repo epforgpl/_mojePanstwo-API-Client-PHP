@@ -28,7 +28,49 @@ class Twitter extends DocDataObject
 	protected $hl_fields = array(
     	'twitter_accounts.name', 'liczba_retweetow',
     );
+    
+    public $dictionary = array(
+		1 => array('Poseł', 'success'),
+		2 => array('Komentator', 'default'),
+		3 => array('Urząd', 'warning'),
+		4 => array('Człowiek rządu', 'danger'),
+		9 => array('NGO', 'primary'),
+	);
 	
+	public function getAccountTypeName(){
+		
+		$output = '';
+				
+		if( 
+			( $type_id = $this->getData('twitter_accounts.typ_id') ) && 
+			( in_array($type_id, array_keys($this->dictionary)) )
+		) {
+			
+			$output = $this->dictionary[ $type_id ][0];
+			
+		}
+		
+		return $output;	
+		
+	}
+	
+	public function getAccountTypeClass(){
+		
+		$output = '';
+		
+		if( 
+			( $type_id = $this->getData('twitter_accounts.typ_id') ) && 
+			( in_array($type_id, array_keys($this->dictionary)) )
+		) {
+			
+			$output = $this->dictionary[ $type_id ][1];
+			
+		}
+		
+		return $output;	
+		
+	}
+		
     public function getLabel()
     {
     	/*
