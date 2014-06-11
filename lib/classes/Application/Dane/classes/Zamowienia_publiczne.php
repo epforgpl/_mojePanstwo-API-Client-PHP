@@ -6,6 +6,8 @@ class Zamowienia_publiczne extends DocDataObject
 {
 	
 	protected $schema = array(
+	
+		array('zamowienia_publiczne_tryby.nazwa', false),
 		array('zamawiajacy_nazwa', 'Zamawiający'),
 		array('zamawiajacy_miejscowosc', 'Miejscowość'),
 		array('data_publikacji', 'Data publikacji', 'date'),
@@ -29,7 +31,7 @@ class Zamowienia_publiczne extends DocDataObject
     );
 	
 	protected $hl_fields = array(
-    	'zamawiajacy_nazwa', 'zamawiajacy_miejscowosc',
+    	'zamowienia_publiczne_tryby.nazwa', 'zamawiajacy_nazwa', 'zamawiajacy_miejscowosc',
     );
 	
     public function getLabel()
@@ -37,6 +39,30 @@ class Zamowienia_publiczne extends DocDataObject
 
         return 'Zamówienie publiczne nr <strong>' . $this->getData('pozycja') . '</strong>';
 
+    }
+    
+    public function getStatus(){
+	    
+	    $nazwa = '';
+	    
+	    if( $this->getData('status_id')=='0' )
+	    	return array(
+	    		'nazwa' => 'Zamówienie otwarte',
+	    		'class' => 'success',
+	    	);
+
+		elseif( $this->getData('status_id')=='2' )	
+	    	return array(
+	    		'nazwa' => 'Zamówienie rozstrzygnięte',
+	    		'class' => 'danger'
+	    	);
+	    	
+	    
+	    return array(
+	    	'nazwa' => '',
+	    	'class' => '',
+	    );
+	    
     }
 
 }
