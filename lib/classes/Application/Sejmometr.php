@@ -11,5 +11,10 @@ class Sejmometr extends Application
 	{
 		return $this->request('autorzy_projektow', $params);
 	}
+	
+	public function zawody()
+	{
+		return $this->request('zawody');
+	}
 
 }
