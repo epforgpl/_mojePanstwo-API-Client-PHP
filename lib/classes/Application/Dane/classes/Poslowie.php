@@ -6,7 +6,7 @@ class Poslowie extends DataObject
 {
 
     protected $schema = array(
-		array('sejm_kluby.nazwa', 'Klub parlamentarny', 'string', array(
+		array('sejm_kluby.nazwa', '', 'string', array(
 			'img' => 'http://resources.sejmometr.pl/s_kluby/{$klub_id}_a_t.png',
 		)),
 		array('zawod', 'Zawód', 'string', array(
