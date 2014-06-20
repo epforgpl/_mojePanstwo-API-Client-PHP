@@ -22,5 +22,23 @@ class Sejmometr extends Application
 	{
 		return $this->request('stats');
 	}
-
+	
+	public function getLatestData()
+	{
+		$ret = $this->request('latestData');	
+		
+		if( !empty($ret) ) {
+			foreach( $ret as $key => &$val ) {
+				if( isset($val['dataobjects']) && !empty($val['dataobjects']) ) {
+					foreach( $val['dataobjects'] as &$object ) {
+						
+						$object = $this->Dane()->interpretateObject( $object );
+						
+					}	
+				}
+			}
+		}
+		
+		return $ret;
+	}
 }

@@ -24,7 +24,7 @@ class Sejm_glosowania extends DocDataObject
     );
     
     protected $hl_fields = array(
-    	'sejm_posiedzenia.tytul', 'numer', 'wynik_id'
+    	'wynik_id', 'sejm_posiedzenia.tytul', 'numer',
     );
     
     public function getLabel()
