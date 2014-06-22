@@ -15,6 +15,9 @@ class Poslowie extends DataObject
 		array('data_urodzenia', 'Wiek', 'date', array(
 			'format' => 'wiek',
 		)),
+		array('liczba_wypowiedzi', 'Liczba wystąpień', 'integer'),
+		array('liczba_przelotow', 'Liczba przelotów', 'integer'),
+		array('liczba_przejazdow', 'Liczba przejazdów', 'integer'),
 	);
     
     protected $routes = array(
@@ -25,6 +28,15 @@ class Poslowie extends DataObject
     protected $hl_fields = array(
     	'sejm_kluby.nazwa', 'zawod', 'data_urodzenia'
     );
+	
+	public function __construct($params = array())
+    {
+    	parent::__construct($params);
+    	
+    	if( $this->data('klub_id')=='7' )    	
+	    	unset( $this->schema[0][3]['img'] );
+	    	
+    }
 	
     public function getLabel()
     {
