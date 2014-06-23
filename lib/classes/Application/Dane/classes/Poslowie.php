@@ -45,7 +45,7 @@ class Poslowie extends DataObject
 
     public function getThumbnailUrl($size = '0')
     {
-        return 'http://resources.sejmometr.pl/mowcy/a/' . $size . '/' . $this->getData('mowca_id') . '.jpg';
+        return 'http://resources.sejmometr.pl/mowcy/a/' . $size . '/' . $this->getData('ludzie.id') . '.jpg';
     }
 
 
