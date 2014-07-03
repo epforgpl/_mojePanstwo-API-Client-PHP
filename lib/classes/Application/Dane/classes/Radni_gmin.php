@@ -12,6 +12,7 @@ class Radni_gmin extends DataObject
 				'object_id' => '$gminy.id',
 			),
 		)),
+		
 		array('oswiadczenie_id', 'Powiązania ze służbami PRL', 'string', array(
 			'dictionary' => array(
 				'1' => 'Praca',
@@ -20,8 +21,6 @@ class Radni_gmin extends DataObject
 				'4' => 'Brak danych',
 			),
 		)),
-
-
 
 		array('rady_gmin_komitety.nazwa', 'Komitet wyborczy'),
 		array('poparcie', 'Poparcie', 'string'),
@@ -48,19 +47,40 @@ class Radni_gmin extends DataObject
     );
     
     protected $hl_fields = array(
-    	'gminy.nazwa', 'rady_gmin_komitety.nazwa', 'liczba_glosow', 'oswiadczenie_id'
+    	'gminy.nazwa', 'rady_gmin_komitety.nazwa', 'liczba_glosow'
     );
 
     public function getLabel()
     {
-        $output = ($this->getData('plec') == 'K') ? 'Radna' : 'Radny';
-        $output .= ' gminy <a href="/dane/gminy/' . $this->getData('gmina_id') . '">' . $this->getData('gminy.nazwa') . '</a>';
+        $output = $this->getShortLabel();
+        $output .= ' <a href="/dane/gminy/' . $this->getData('gmina_id') . '">' . $this->getData('gminy.nazwa') . '</a>';
         return $output;
+    }
+    
+    public function getShortLabel()
+    {
+        $output = ($this->getData('plec') == 'K') ? 'Radna' : 'Radny';
+        return $output . ' gminy';
     }
     
     public function hasHighlights()
     {
         return false;
+    }
+    
+    public function getUrl()
+    {
+	    return '/dane/gminy/' . $this->getData('gmina_id') . '/radni/' . $this->getId();
+    }
+    
+    public function getThumbnailUrl($size = '0')
+    {
+    	if( $this->getData('avatar')=='1' )
+	        return 'http://resources.sejmometr.pl/avatars/5/' . $this->getData('avatar_id') . '.jpg';
+	    elseif( $this->getData('plec')=='K' )
+	        return 'http://resources.sejmometr.pl/avatars/g/w.png';
+	    else 
+	        return 'http://resources.sejmometr.pl/avatars/g/m.png';
     }
 
 }

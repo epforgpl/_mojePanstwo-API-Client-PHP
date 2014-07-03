@@ -44,10 +44,7 @@ class Rady_gmin_wystapienia extends DocDataObject
 
     public function getUrl()
     {
-        return $this->constants['url_protocol'] .
-        $this->constants['url_host'] . '/dane/' .
-        'rady_gmin_debaty' . '/' .
-        $this->getData('rady_gmin_debaty.id') . '#' . $this->object_id;
+        return '/dane/gminy/' . $this->getData('rady_gmin_debaty.gmina_id') . '/debaty/' . $this->getData('debata_id') . '#' . $this->getId();
     }
 
 }

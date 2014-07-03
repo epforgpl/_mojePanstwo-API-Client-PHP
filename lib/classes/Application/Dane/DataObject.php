@@ -164,6 +164,11 @@ class DataObject extends \MP\API
         return $this->getData($this->routes['label']);
     }
     
+    public function getShortLabel()
+    {
+        return $this->getData($this->routes['label']);
+    }
+    
     public function getFullLabel()
     {
         return $this->getLabel();
@@ -176,13 +181,14 @@ class DataObject extends \MP\API
 
     public function getUrl($options = array())
     {
+    	/*
         $output = $this->constants['url_protocol'] .
             $this->constants['url_host'];
 
         if (defined('URL_PORT'))
             $output .= ':' . URL_PORT;
-
-        $output .= '/dane/' .
+		*/
+        $output = '/dane/' .
             $this->getDataset() . '/' .
             $this->getId();
 

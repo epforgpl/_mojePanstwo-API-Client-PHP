@@ -27,20 +27,31 @@ class Rady_gmin_debaty extends DocDataObject
         'shortTitle' => 'tytul',
         'date' => 'rady_gmin_posiedzenia.data',
         'position' => 'numer_punktu',
+        'description' => 'opis',
     );
     
     protected $hl_fields = array(
-    	'gminy.nazwa', 'rady_gmin_posiedzenia.numer', 'numer_punktu', 'opis',
+    	'gminy.nazwa', 'rady_gmin_posiedzenia.numer', 'numer_punktu',
     );
 
     public function getThumbnailUrl($size = '3')
     {
         return 'http://img.youtube.com/vi/' . $this->getData('yt_video_id') . '/mqdefault.jpg';
     }
-
+	
+	public function getShortLabel()
+    {
+        return 'Debata na posiedzeniu Rady Miasta';
+    }
+	
     public function getLabel()
     {
         return 'Debata na posiedzeniu <strong>' . $this->getData('gminy.rada_nazwa_dopelniacz') . '</strong>';
+    }
+    
+    public function getUrl()
+    {
+	    return '/dane/gminy/' . $this->getData('gminy.id') . '/debaty/' . $this->getId();
     }
 
 }
