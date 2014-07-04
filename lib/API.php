@@ -10,6 +10,7 @@ class API
     protected $requests_prefix = '/';
     public $lastResponseBody = false;
     protected $user_id = null;
+    protected $timer = array();
 
     protected $strings = array(
         'miesiace' => array(
@@ -49,6 +50,18 @@ class API
 				
         if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
             throw new RequestMethodNotSupported('GET');
+		
+		$timer = array(
+			'resource' => $resource,
+			'params' => $params,
+			'start' => $this->getmicrotime(),
+			'phases' => array(
+				array(
+					'id' => 'init',
+					'tic' => $this->getmicrotime(),
+				),
+			),
+		);
 			
         $url = $this->getRequestURL($resource);
         $query = http_build_query($params);
@@ -91,8 +104,19 @@ class API
 
         $ch = curl_init();
         curl_setopt_array($ch, $curl_options);
+        
+        $timer['phases'][] = array(
+        	'id' => 'query',
+        	'tic' => $this->getmicrotime(),
+        );
+        
         $res_body = curl_exec($ch);
-
+		
+		$timer['phases'][] = array(
+        	'id' => 'postprocessing',
+        	'tic' => $this->getmicrotime(),
+        );
+		
         // check error status
         $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curl_errno = curl_errno($ch);
@@ -112,9 +136,34 @@ class API
             debug($res_body, true, false);
 
         $this->lastResponseBody = $res_body;
-        return @json_decode($res_body, 1);
+        $output = @json_decode($res_body, 1);
+        
+        $timer['stop'] = $this->getmicrotime();
+        $this->timer = $timer;
+        
+        if (defined('MPAPI_TIMER') && (MPAPI_TIMER == '1')) {
+        	debug( $this->getRequestTimer() );
+        }
+        
+        return $output;
     }
-
+	
+	public function getRequestTimer() {
+		
+		$phases = array();
+		
+		$phases = $this->timer['phases'];
+		
+		$output = array(
+			'resource' => $this->timer['resource'],
+			'duration' => $this->timer['stop'] - $this->timer['start'],
+			'phases' => $phases,
+		);
+		
+		return $output;
+		
+	}
+	
     public function dataSlownie($data)
     {
 
@@ -191,6 +240,11 @@ class API
 		if( isset($options['user_id']) && $options['user_id'] )
             $this->user_id = $options['user_id'];   
 	}
+	
+	private function getmicrotime(){ 
+	    list($usec, $sec) = explode(" ",microtime()); 
+	    return ((float)$usec + (float)$sec); 
+    } 
 	
     final public function Dane()
     {
