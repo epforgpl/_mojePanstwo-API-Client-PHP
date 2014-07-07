@@ -24,6 +24,7 @@ require_once('lib/classes/Application/MapaPrawa.php');
 require_once('lib/classes/Application/ZamowieniaPubliczne.php');
 require_once('lib/classes/Application/BDL.php');
 require_once('lib/classes/Application/Sejmometr.php');
+require_once('lib/classes/Application/Administracja.php');
 require_once('lib/classes/Application/OAuth.php');
 require_once('lib/classes/Application/OAuthClient.php');
 require_once('lib/classes/Application/OAuthCode.php');

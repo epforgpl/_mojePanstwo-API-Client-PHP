@@ -315,6 +315,11 @@ class API
     {
         return new Sejmometr( $this->getOptions() );
     }
+    
+    final public function Administracja()
+    {
+        return new Administracja( $this->getOptions() );
+    }
 
     final public function document($id)
     {
