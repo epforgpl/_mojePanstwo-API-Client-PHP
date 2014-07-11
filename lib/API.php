@@ -11,6 +11,7 @@ class API
     public $lastResponseBody = false;
     protected $user_id = null;
     protected $timer = array();
+    protected $urlMode = '';
 
     protected $strings = array(
         'miesiace' => array(
@@ -36,6 +37,11 @@ class API
     	$this->setOptions( $options );
     }
 
+	public function setUrlMode( $mode )
+	{
+		return ( $this->urlMode = $mode );
+	}
+	
     private function getRequestURL($resource)
     {
 
