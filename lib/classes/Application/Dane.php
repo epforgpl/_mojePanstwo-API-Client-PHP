@@ -134,14 +134,14 @@ class Dane extends Application
         return $this->lastSearchResponse['search'];
     }
 
-    public function getObject($dataset, $id)
+    public function getObject($dataset, $id, $params = array())
     {
 		
-		$response = $this->request($dataset . '/' . $id);
+		$response = $this->request($dataset . '/' . $id, $params);
 		
 		if( $response && isset($response['object']) && !empty($response['object']) ) {
 			
-			return $this->interpretateObject( $response['object'] );
+			return $this->parseResponse( $response );
 		
 		} else throw new Exception('Object not found', $response);
 		
@@ -171,7 +171,37 @@ class Dane extends Application
         return $obj;
 
     }
+	
+	public function parseResponse($response)
+    {
+		
+		$object = $response['object'];
+        $classname = ucfirst($object['dataset']);
+        $path = dirname(__FILE__);
+        
+        if (file_exists($path . '/Dane/classes/' . $classname . '.php')) {
+            
+            require_once($path . '/Dane/classes/' . $classname . '.php');
+            if (!class_exists('MP\\Dane\\' . $classname))
+                $classname = 'DataObject';
+            
+        } else {
+            $classname = 'DataObject';
+        }
+        $classname = 'MP\\Dane\\' . $classname;
+        $obj = new $classname($object);
+        
+        if( isset($object['hl_text']) && $object['hl_text'] )
+	        $obj->hl = $object['hl_text'];
+	        
+	    if( isset($response['layers']) && $response['layers'] )
+	        foreach( $response['layers'] as $layer )
+	        	$obj->layers[ $layer['name'] ] = $layer['data'];
+	        	        
+        return $obj;
 
+    }
+	
     public function getObjects()
     {
 
