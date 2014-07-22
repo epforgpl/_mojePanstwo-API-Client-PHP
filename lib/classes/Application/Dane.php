@@ -38,10 +38,10 @@ class Dane extends Application
         return $this->request('datasets/index');
     }
 
-    public function getDataset($alias)
+    public function getDataset($alias, $params = array())
     {
         if ($alias) {
-            $ret = @$this->request('dataset/' . $alias);
+            $ret = @$this->request('dataset/' . $alias, $params);
             return $ret['dataset'];
         } else {
             return false;
@@ -104,10 +104,10 @@ class Dane extends Application
     }
     
 
-    public function getDatachannel($alias)
+    public function getDatachannel($alias, $params = array())
     {
         if ($alias) {
-            $ret = @$this->request('datachannel/' . $alias);
+            $ret = @$this->request('datachannel/' . $alias, $params);
             return $ret['datachannel'];
         } else {
             return false;
