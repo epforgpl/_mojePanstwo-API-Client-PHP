@@ -93,7 +93,14 @@ class Document extends API
         $data = $this->request($this->id . '/html/' . $package);
         return $data['html'];
     }
-
+	
+	public function getVersion()
+	{
+		
+		return $this->data['version'];
+		
+	}
+	
     public function getCSSLocation()
     {
         return 'http://docs.sejmometr.pl/htmlex/' . $this->id . '/' . $this->id . '.css';

@@ -301,6 +301,11 @@ class API
     {
         return new Ustawy( $this->getOptions() );
     }
+    
+    final public function Prawo()
+    {
+        return new Prawo( $this->getOptions() );
+    }
 
     final public function MapaPrawa()
     {
