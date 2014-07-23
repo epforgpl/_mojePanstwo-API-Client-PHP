@@ -16,10 +16,7 @@ class KodyPocztowe extends Application
 
     public function searchCode($q)
     {
-
-        $data = @$this->request('codes/' . $q);
-        return @$data['search'];
-
+        return @$this->request($q);
     }
 
     public function searchCities($q)
