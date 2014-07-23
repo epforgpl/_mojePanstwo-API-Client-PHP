@@ -103,7 +103,7 @@ class Document extends API
 	
     public function getCSSLocation()
     {
-        return 'http://docs.mojepanstwo.pl/htmlex/' . $this->id . '/' . $this->id . '.css';
+        return 'http://' . URL_HOST . '/htmlex/' . $this->id . '/' . $this->id . '.css';
     }
 
 } 
