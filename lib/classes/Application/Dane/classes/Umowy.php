@@ -17,7 +17,7 @@ class Umowy extends DocDataObject
 	
 	public function getUrl()
 	{
-		return 'dane/krs_podmioty/' . $this->getData('krs_id') . '/umowy/' . $this->getId();
+		return '/dane/krs_podmioty/' . $this->getData('krs_id') . '/umowy/' . $this->getId();
 	}
 		
 }
