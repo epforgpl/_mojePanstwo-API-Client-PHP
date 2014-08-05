@@ -135,7 +135,14 @@ class API
         }
 
         if ($http_status >= 400) {
-            throw new ApiHttpError($http_status, $res_body);
+            if ($http_status == 422) {
+                throw new ApiValidationException($http_status, $res_body);
+            }
+            if ($http_status == 418) {
+                throw new ApiCustomException($http_status, $res_body);
+            }
+
+            throw new ApiHttpException($http_status, $res_body);
         }
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
@@ -310,6 +317,11 @@ class API
     final public function MapaPrawa()
     {
         return new MapaPrawa( $this->getOptions() );
+    }
+
+    final public function Pisma()
+    {
+        return new Pisma( $this->getOptions() );
     }
 
     final public function ZamowieniaPubliczne()
