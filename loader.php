@@ -22,6 +22,7 @@ require_once('lib/classes/Application/Geo.php');
 require_once('lib/classes/Application/PanstwoInternet.php');
 require_once('lib/classes/Application/Media.php');
 require_once('lib/classes/Application/MapaPrawa.php');
+require_once('lib/classes/Application/Pisma.php');
 require_once('lib/classes/Application/ZamowieniaPubliczne.php');
 require_once('lib/classes/Application/BDL.php');
 require_once('lib/classes/Application/Sejmometr.php');
