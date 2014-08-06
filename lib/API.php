@@ -12,6 +12,7 @@ class API
     protected $user_id = null;
     protected $timer = array();
     protected $urlMode = '';
+    protected $passExceptions = array();
 
     protected $strings = array(
         'miesiace' => array(
@@ -142,6 +143,12 @@ class API
                 throw new ApiCustomException($http_status, $res_body);
             }
 
+            foreach($this->passExceptions as $code => $class) {
+                if ($http_status == $code) {
+                    throw new $class('API thrown: ' . $res_body);
+                }
+            }
+
             throw new ApiHttpException($http_status, $res_body);
         }
 
@@ -245,13 +252,18 @@ class API
 	{
 		return array(
 			'user_id' => $this->user_id,
+            'passExceptions' => $this->passExceptions
 		);
 	}
 	
 	public function setOptions($options = array())
 	{
 		if( isset($options['user_id']) && $options['user_id'] )
-            $this->user_id = $options['user_id'];   
+            $this->user_id = $options['user_id'];
+
+        if (isset($options['passExceptions']) && !empty($options['passExceptions'])) {
+            $this->passExceptions = (array) $options['passExceptions'];
+        }
 	}
 	
 	private function getmicrotime(){ 
