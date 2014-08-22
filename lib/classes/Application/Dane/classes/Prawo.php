@@ -25,6 +25,13 @@ class Prawo extends DocDataObject
     	'isap_status_str', 'sygnatura', 'data_publikacji', 'data_wejscia_w_zycie'
     );
     
+    public function getLabel() {
+	    
+	    // return $this->getData('status_id');
+	    return $this->getData('label');
+	    
+    }
+    
     public $force_hl_fields = true;
 
 }

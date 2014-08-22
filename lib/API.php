@@ -12,6 +12,7 @@ class API
     protected $user_id = null;
     protected $timer = array();
     protected $urlMode = '';
+    protected $passExceptions = array();
 
     protected $strings = array(
         'miesiace' => array(
@@ -135,7 +136,20 @@ class API
         }
 
         if ($http_status >= 400) {
-            throw new ApiHttpError($http_status, $res_body);
+            if ($http_status == 422) {
+                throw new ApiValidationException($http_status, $res_body);
+            }
+            if ($http_status == 418) {
+                throw new ApiCustomException($http_status, $res_body);
+            }
+
+            foreach($this->passExceptions as $code => $class) {
+                if ($http_status == $code) {
+                    throw new $class('API thrown: ' . $res_body);
+                }
+            }
+
+            throw new ApiHttpException($http_status, $res_body);
         }
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1'))
@@ -238,13 +252,18 @@ class API
 	{
 		return array(
 			'user_id' => $this->user_id,
+            'passExceptions' => $this->passExceptions
 		);
 	}
 	
 	public function setOptions($options = array())
 	{
 		if( isset($options['user_id']) && $options['user_id'] )
-            $this->user_id = $options['user_id'];   
+            $this->user_id = $options['user_id'];
+
+        if (isset($options['passExceptions']) && !empty($options['passExceptions'])) {
+            $this->passExceptions = (array) $options['passExceptions'];
+        }
 	}
 	
 	private function getmicrotime(){ 
@@ -310,6 +329,11 @@ class API
     final public function MapaPrawa()
     {
         return new MapaPrawa( $this->getOptions() );
+    }
+
+    final public function Pisma()
+    {
+        return new Pisma( $this->getOptions() );
     }
 
     final public function ZamowieniaPubliczne()

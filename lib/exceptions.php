@@ -28,7 +28,7 @@ class ApiBadInvocation extends ApiException {
  */
 class ApiConnectionException extends ApiException {
 
-    private $conErrorCode;
+    protected $conErrorCode;
 
     public function __construct($connErrorCode, $message = null, Exception $previous = null) {
         parent::__construct($message, 2, $previous);
@@ -50,9 +50,9 @@ class ApiConnectionException extends ApiException {
  *
  * @package MP
  */
-class ApiHttpError extends ApiException {
+class ApiHttpException extends ApiException {
 
-    private $httpErrorCode;
+    protected $httpErrorCode;
 
     public function __construct($httpErrorCode, $message = null, Exception $previous = null) {
         parent::__construct($message, 2, $previous);
@@ -67,5 +67,71 @@ class ApiHttpError extends ApiException {
 
     public function getHttpErrorCode() {
         return $this->httpErrorCode;
+    }
+}
+
+class ApiValidationException extends ApiHttpException {
+
+    protected $errors;
+
+    public function __construct($httpErrorCode, $message, Exception $previous = null) {
+        parent::__construct($httpErrorCode, $message, $previous);
+
+        $payload = json_decode($message, true);
+        $this->errors = $payload['errors'];
+    }
+
+    public function __toString()
+    {
+        return get_class($this) . "[$this->httpErrorCode]: Validation failed: " . implode(",", array_keys($this->errors));
+    }
+
+    public function getValidationErrors() {
+        return $this->errors;
+    }
+}
+
+class ApiCustomException extends ApiHttpException {
+
+    /**
+     * @var kod błędu, opisany na konkretnym API
+     */
+    protected $apiErrorCode = null;
+
+    /**
+     * @var parametry błędu (niezależne od języka, specyficzne dla danego kodu błędu)
+     */
+    protected $params = null;
+
+    /**
+     * @var opis błędu
+     */
+    protected $error_description;
+
+    public function __construct($httpErrorCode, $message, Exception $previous = null) {
+        parent::__construct($httpErrorCode, $message, $previous);
+
+        $payload = json_decode($message, true);
+
+        $this->apiErrorCode = $payload['code'];
+        $this->params = $payload['params'];
+        $this->error_description = $payload['error_description'];
+    }
+
+    public function __toString()
+    {
+        return get_class($this) . "[$this->httpErrorCode, $this->apiErrorCode]: $this->error_description";
+    }
+
+    public function getApiExceptionCode() {
+        return $this->apiErrorCode;
+    }
+
+    public function getParams() {
+        return $this->params;
+    }
+
+    public function getDescription() {
+        return $this->error_description;
     }
 }
