@@ -31,13 +31,26 @@ class Zamowienia_publiczne extends DocDataObject
     );
 	
 	protected $hl_fields = array(
-    	'zamowienia_publiczne_tryby.nazwa', 'zamawiajacy_nazwa', 'zamawiajacy_miejscowosc',
+    	'zamawiajacy_nazwa', 'zamawiajacy_miejscowosc',
     );
 	
     public function getLabel()
     {
-
-        return 'Zamówienie publiczne nr <strong>' . $this->getData('pozycja') . '</strong>';
+		
+		$status = $this->getStatus();		
+		if( $this->getData('tryb_id')=='2' ) {
+			
+			return '<span class="label label-danger">Zamówienie z wolnej ręki</span>';
+			
+		} else {
+		
+        $output = $this->getData('zamowienia_publiczne_tryby.nazwa');
+        if( $this->getData('status_id')=='2' )
+        	
+        	$output .= ' <span class="label label-danger">Rozstrzygnięto</span>';
+        
+        }
+        return $output;
 
     }
     
@@ -64,5 +77,7 @@ class Zamowienia_publiczne extends DocDataObject
 	    );
 	    
     }
-
+    
+    public $force_hl_fields = true;
+    
 }
