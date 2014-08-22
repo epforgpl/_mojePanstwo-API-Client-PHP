@@ -18,12 +18,13 @@ class Krs_podmioty extends DataObject
 		array('email', 'Email'),
 		array('www', 'WWW'),
 		
-		
+		/*
 		array('wartosc_kapital_zakladowy', 'Kapitał zakładowy', 'pln'),
 		array('wartosc_czesc_kapitalu_wplaconego', 'Cześć kapitału wpłaconego', 'pln'),
 		array('wartosc_kapital_docelowy', 'Kapitał docelowy', 'pln'),
 		array('wartosc_nominalna_akcji', 'Wartość nominalna akcji', 'pln'),
 		array('wartosc_nominalna_podwyzszenia_kapitalu', 'Wartość nominalna podwyższenia kapitału', 'pln'),
+		*/
 		
 		array('oznaczenie_sadu', 'Sąd', 'string', array(
 			'truncate' => 30,
