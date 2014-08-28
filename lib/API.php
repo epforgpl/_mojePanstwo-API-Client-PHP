@@ -355,6 +355,11 @@ class API
     {
         return new Administracja( $this->getOptions() );
     }
+    
+    final public function Kultura()
+    {
+        return new Kultura( $this->getOptions() );
+    }
 
     final public function document($id)
     {

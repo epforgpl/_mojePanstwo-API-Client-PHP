@@ -197,6 +197,11 @@ class Dane extends Application
     {
         return @$this->lastSearchResponse['search']['facets'];
     }
+    
+    public function getDidyoumean()
+    {
+        return @$this->lastSearchResponse['search']['didyoumean'];
+    }
 
 
     /*
