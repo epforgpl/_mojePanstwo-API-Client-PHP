@@ -18,17 +18,19 @@ class Sejm_druki extends DocDataObject
     );
     
     protected $hl_fields = array(
-    	'numer', 'druk_typ_nazwa'
+    	'druk_typ_nazwa'
     );
 
     public function getLabel()
     {
-        return 'Druk sejmowy';
+        return 'Druk sejmowy <strong>nr ' . $this->getData('numer') . '</strong>';
     }
     
     public function getFullLabel()
     {
-        return 'Druk sejmowy z dnia' . dataSlownie( $this->getDate() );
+        return 'Druk sejmowy nr ' . $this->getData('numer') . ' z dnia' . dataSlownie( $this->getDate() );
     }
+
+    public $force_hl_fields = true;
 
 }
