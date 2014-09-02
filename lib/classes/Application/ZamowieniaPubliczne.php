@@ -9,13 +9,7 @@ class ZamowieniaPubliczne extends Application
 
     public function getStats()
     {
-        $data = @$this->request('stats');
-        return @$data['stats'];
-    }
-    
-    public function getNewStats()
-    {
-        return @$this->request('newstats');
+        return @$this->request('stats');
     }
 
 }
