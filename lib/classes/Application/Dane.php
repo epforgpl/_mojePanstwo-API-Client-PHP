@@ -114,7 +114,13 @@ class Dane extends Application
         }
     }
 
-
+	
+	public function suggest( $params = array() ) {
+		
+		return $this->request('dataobjects/suggest', $params);
+		
+	}
+	
     // SEARCH
     public function search($queryData = array())
     {

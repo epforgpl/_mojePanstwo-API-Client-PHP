@@ -12,7 +12,7 @@ namespace MP;
 class KodyPocztowe extends Application
 {
 
-    protected $requests_prefix = '/kody_pocztowe/';
+    protected $requests_prefix = '/kody_pocztowe/codes/';
 
     public function searchCode($q)
     {
