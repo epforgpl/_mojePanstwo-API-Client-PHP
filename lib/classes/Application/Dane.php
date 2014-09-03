@@ -117,7 +117,14 @@ class Dane extends Application
 	
 	public function suggest( $params = array() ) {
 		
-		return $this->request('dataobjects/suggest', $params);
+		$output = array();
+		$data = $this->request('dataobjects/suggest', $params);
+
+        if (isset($data['objects']['dataobjects']))
+            foreach ($data['objects']['dataobjects'] as $object)
+                $output[] = $this->interpretateObject($object);
+				
+        return $output;
 		
 	}
 	
