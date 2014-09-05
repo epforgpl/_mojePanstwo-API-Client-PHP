@@ -119,10 +119,16 @@ class Dane extends Application
 		
 		$output = array();
 		$data = $this->request('dataobjects/suggest', $params);
-
-        if (isset($data['objects']['dataobjects']))
-            foreach ($data['objects']['dataobjects'] as $object)
-                $output[] = $this->interpretateObject($object);
+				
+        if (isset($data['objects']['dataobjects'])) {
+            foreach ($data['objects']['dataobjects'] as $object) {
+            	            	
+            	$obj = $this->interpretateObject($object);
+            	$obj->layers['label'] = $object['label'];
+                $output[] = $obj;
+                
+            }
+        }
 				
         return $output;
 		
@@ -131,8 +137,8 @@ class Dane extends Application
     // SEARCH
     public function search($queryData = array())
     {
-        $this->lastSearchResponse = $this->request('datasets/search', $queryData);
-        return $this->lastSearchResponse;
+        $this->lastSearchResponse = $this->request('search', $queryData);
+        return isset($this->lastSearchResponse['search']) ? $this->lastSearchResponse['search'] : false;
     }
 
     public function searchDatachannel($channel, $queryData = array())
@@ -144,7 +150,7 @@ class Dane extends Application
     public function searchDataset($alias, $queryData = array())
     {
         $this->lastSearchResponse = $this->request('dataset/' . $alias . '/search', $queryData);
-        return $this->lastSearchResponse['search'];
+        return isset($this->lastSearchResponse['search']) ? $this->lastSearchResponse['search'] : false;
     }
 
     public function getObject($dataset, $id, $params = array())
