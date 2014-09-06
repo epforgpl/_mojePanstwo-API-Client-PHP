@@ -20,6 +20,11 @@ class Senatorowie extends DocDataObject
     {
         return $this->getShortTitle();
     }
+    
+    public function getDescription()
+    {
+        return false;
+    }
 
     public function getShortTitle()
     {

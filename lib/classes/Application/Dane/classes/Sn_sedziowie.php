@@ -25,11 +25,6 @@ class Sn_sedziowie extends DocDataObject
     {
         return $this->getData('nazwa');
     }
-
-    public function getUrl()
-    {
-        return false;
-    }
     
     public function hasHighlights()
     {

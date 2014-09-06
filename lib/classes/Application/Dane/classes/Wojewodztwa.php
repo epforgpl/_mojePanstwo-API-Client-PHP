@@ -5,7 +5,7 @@ namespace MP\Dane;
 class Wojewodztwa extends DataObject
 {
 
-    protected $_fields = array(
+    protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',
     );
