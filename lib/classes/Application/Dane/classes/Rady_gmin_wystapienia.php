@@ -23,8 +23,8 @@ class Rady_gmin_wystapienia extends DocDataObject
 	);
 	
     protected $routes = array(
-        'title' => 'radni_gmin.nazwa_rev',
-        'shortTitle' => 'radni_gmin.nazwa_rev',
+        'title' => 'rady_gmin_debaty.tytul',
+        'shortTitle' => 'rady_gmin_debaty.tytul',
         'date' => 'rady_gmin_posiedzenia.data',
     );
 	
