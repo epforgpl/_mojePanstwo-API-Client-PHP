@@ -51,5 +51,9 @@ class Sejm_wystapienia extends DocDataObject
         return false;
 
     }
+    
+    public function hasHighlights(){
+	    return false;
+    }
 
 }
