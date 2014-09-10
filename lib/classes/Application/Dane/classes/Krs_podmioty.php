@@ -49,7 +49,13 @@ class Krs_podmioty extends DataObject
     {
 
         parent::__construct($params);
-
+		
+		if( !$this->getData('nazwa') )
+			$this->data['nazwa'] = $this->data['firma'];
+			
+		if( !$this->getData('nazwa_skrocona') )
+			$this->data['nazwa_skrocona'] = $this->data['firma'];
+		
         if( !empty($this->data) )
 	        foreach( $this->data as $key => &$val )
 		        if( !trim(str_replace('-', '', $val)) )
