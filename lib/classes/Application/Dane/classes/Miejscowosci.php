@@ -17,20 +17,23 @@ class Miejscowosci extends DataObject
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',
+        'label' => 'miejscowosci_typy.nazwa',
     );
     
     protected $hl_fields = array(
     	'gminy.nazwa'
     );
-
-    public function getLabel()
-    {
-        return 'Miejscowość';
-    }
     
     public function hasHighlights()
     {
         return false;
     }
+    
+    public function getUrl()
+    {
+	    return '/dane/gminy/' . $this->getData('gmina_id') . '/miejscowosci/' . $this->getId();
+    }
+    
+    public $force_hl_fields = true;
 
 }
