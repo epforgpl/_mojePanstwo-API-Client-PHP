@@ -360,6 +360,11 @@ class API
     {
         return new Kultura( $this->getOptions() );
     }
+    
+    final public function Finanse()
+    {
+        return new Finanse( $this->getOptions() );
+    }
 
     final public function document($id)
     {
