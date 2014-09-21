@@ -351,9 +351,9 @@ class API
         return new Sejmometr( $this->getOptions() );
     }
     
-    final public function Administracja()
+    final public function KtoTuRzadzi()
     {
-        return new Administracja( $this->getOptions() );
+        return new KtoTuRzadzi( $this->getOptions() );
     }
     
     final public function Kultura()

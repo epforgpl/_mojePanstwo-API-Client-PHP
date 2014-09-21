@@ -2,7 +2,7 @@
 
 namespace MP;
 
-class Administracja extends Application
+class KtoTuRzadzi extends Application
 {
 
     protected $requests_prefix = '/administracja/';

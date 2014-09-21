@@ -2,7 +2,7 @@
 
 namespace MP\Dane;
 
-class Administracja_publiczna extends DataObject
+class Instytucje extends DataObject
 {
 
     protected $routes = array(
@@ -12,7 +12,7 @@ class Administracja_publiczna extends DataObject
 
     public function getLabel()
     {
-        return 'Administracja publiczna';
+        return 'Instytucja publiczna';
     }
 	
 	public function hasHighlights()

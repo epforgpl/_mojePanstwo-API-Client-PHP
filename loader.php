@@ -28,7 +28,7 @@ require_once('lib/classes/Application/Finanse.php');
 require_once('lib/classes/Application/BDL.php');
 require_once('lib/classes/Application/Kultura.php');
 require_once('lib/classes/Application/Sejmometr.php');
-require_once('lib/classes/Application/Administracja.php');
+require_once('lib/classes/Application/KtoTuRzadzi.php');
 require_once('lib/classes/Application/OAuth.php');
 require_once('lib/classes/Application/OAuthClient.php');
 require_once('lib/classes/Application/OAuthCode.php');
