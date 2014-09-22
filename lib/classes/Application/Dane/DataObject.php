@@ -85,6 +85,19 @@ class DataObject extends \MP\API
         return $this->getLayer('related');
 
     }
+    
+    public function interpretateRelated()
+    {
+
+        if( $data = $this->getLayer('related') )
+	        if (!empty($data['groups']))
+	            foreach ($data['groups'] as &$group)
+	                foreach ($group['objects'] as &$object)
+	                    $object = \MP\Dane::interpretateObject($object);
+
+        $this->layers['related'] = $data;
+
+    }
 
     public function hasRelated()
     {

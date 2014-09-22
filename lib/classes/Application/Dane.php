@@ -192,6 +192,8 @@ class Dane extends Application
                 if ($data !== null)
                     $obj->layers[$name] = $data;
         
+        $obj->interpretateRelated();
+        
         return $obj;
     }
 	
