@@ -11,5 +11,15 @@ class Finanse extends Application
     {
         return @$this->request('getBudgetSpendings');
     }
+    
+    public function getBudgetSections()
+    {
+        return @$this->request('getBudgetSections');
+    }
+    
+    public function getBudgetData($params)
+    {
+        return @$this->request('getBudgetData', $params);
+    }    
 
 }
