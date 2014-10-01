@@ -39,7 +39,8 @@ class Powiadomienia extends Application
     
     public function getGroups()
     {
-        return @$this->request('groups');
+        $facets = $this->getFacets();
+        return $facets['alerts'];
     }
 
     public function saveGroup($params)
@@ -91,7 +92,11 @@ class Powiadomienia extends Application
     {
         return @$this->lastSearchResponse['search']['pagination'];
     }
-
+	
+	public function getFacets()
+    {
+        return @$this->lastSearchResponse['search']['facets'];
+    }
 	
 	public function interpretateObject($object)
     {
