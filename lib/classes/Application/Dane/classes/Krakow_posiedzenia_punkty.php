@@ -19,7 +19,7 @@ class Krakow_posiedzenia_punkty extends DocDataObject
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
-        'date' => 'rady_gmin_posiedzenia.data',
+        'date' => 'krakow_posiedzenia.data',
         'position' => 'numer_punktu',
         'description' => 'opis',
     );
