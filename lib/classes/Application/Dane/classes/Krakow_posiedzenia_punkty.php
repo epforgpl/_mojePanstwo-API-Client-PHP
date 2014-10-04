@@ -41,11 +41,10 @@ class Krakow_posiedzenia_punkty extends DocDataObject
 	
     public function getThumbnailUrl($size = '3')
     {
-		
-		return false;
-        $dokument_id = $this->getData('rady_druki.dokument_id');
-        return $dokument_id ? 'http://docs.sejmometr.pl/thumb/' . $size . '/' . $dokument_id . '.png' : false;
-
+    	if( $this->getData('yt_video_id') )
+	        return 'http://img.youtube.com/vi/' . $this->getData('yt_video_id') . '/mqdefault.jpg';
+	    else
+	    	return false;
     }
 	
 	public function getShortLabel()
@@ -65,7 +64,7 @@ class Krakow_posiedzenia_punkty extends DocDataObject
     
     public function getPosition()
     {
-	   return $this->getData('numer');
+	   return '#' . $this->getData('numer');
     }
     
     
