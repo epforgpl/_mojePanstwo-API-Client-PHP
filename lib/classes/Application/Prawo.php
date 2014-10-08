@@ -12,6 +12,11 @@ class Prawo extends Application
 	    return $this->request('tags/getExposed');
     }
     
+    public function getTypes()
+    {
+	    return $this->request('types');
+    }
+    
     public function search($q)
     {
         
