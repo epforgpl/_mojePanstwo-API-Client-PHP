@@ -6,35 +6,35 @@ class Rady_gmin_wystapienia extends DocDataObject
 {
 	
 	protected $schema = array(
-		array('rady_gmin_debaty.tytul', 'Debata', 'string', array(
+		array('krakow_posiedzenia_punkty.tytul', 'Debata', 'string', array(
 			'link' => array(
-				'dataset' => 'rady_gmin_debaty',
-				'object_id' => '$rady_gmin_debaty.id',
+				'dataset' => 'krakow_posiedzenia_punkty',
+				'object_id' => '$krakow_posiedzenia_punkty.id',
 			),
 		)),
-		array('radni_gmin.nazwa_rev', 'Radny'),
-		array('rady_gmin_posiedzenia.numer', 'Numer posiedzenia', 'string', array(
+		array('radni_gmin.nazwa', 'Radny'),
+		array('krakow_posiedzenia.numer', 'Numer posiedzenia', 'string', array(
 			'link' => array(
-				'dataset' => 'rady_posiedzenia',
-				'object_id' => '$rady_gmin_posiedzenia.id',
+				'dataset' => 'krakow_posiedzenia',
+				'object_id' => '$krakow_posiedzenia.id',
 			),
 		)),
 		array('rady_gmin_posiedzenia.data', 'Data', 'date')
 	);
 	
     protected $routes = array(
-        'title' => 'rady_gmin_debaty.tytul',
-        'shortTitle' => 'rady_gmin_debaty.tytul',
-        'date' => 'rady_gmin_posiedzenia.data',
+        'title' => 'radni_gmin.nazwa',
+        'shortTitle' => 'radni_gmin.nazwa',
+        'date' => 'krakow_posiedzenia.data',
     );
-	
+
 	protected $hl_fields = array(
-		'rady_gmin_debaty.tytul', 'rady_gmin_posiedzenia.numer'
+		'krakow_posiedzenia_punkty.tytul'
 	);
 	
     public function getThumbnailUrl($size = '3')
     {
-        return 'http://img.youtube.com/vi/' . $this->getData('rady_gmin_debaty.yt_video_id') . '/mqdefault.jpg';
+        return 'http://img.youtube.com/vi/' . $this->getData('krakow_posiedzenia_punkty.yt_video_id') . '/mqdefault.jpg';
     }
 
     public function getLabel()
@@ -44,7 +44,7 @@ class Rady_gmin_wystapienia extends DocDataObject
 
     public function getUrl()
     {
-        return '/dane/gminy/' . $this->getData('rady_gmin_debaty.gmina_id') . '/debaty/' . $this->getData('debata_id') . '#' . $this->getId();
+        return '/dane/gminy/903/punkty/' . $this->getData('punkt_id') . '#' . $this->getId();
     }
 
 }
