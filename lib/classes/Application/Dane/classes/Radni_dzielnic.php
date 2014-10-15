@@ -68,4 +68,9 @@ class Radni_dzielnic extends DataObject
     {
 	    return 'Radny dzielnicy';
     }
+    
+    public function getUrl()
+    {
+	    return '/dane/gminy/' . $this->getData('gminy.id') . '/dzielnice/' . $this->getId();
+    }
 }

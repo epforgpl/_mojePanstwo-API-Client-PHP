@@ -18,7 +18,6 @@ class Dzielnice extends DataObject
     	'gminy.nazwa'
     );
     
-    
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',
@@ -28,4 +27,15 @@ class Dzielnice extends DataObject
     {
         return false;
     }
+    
+    public function getUrl()
+    {
+	    return '/dane/gminy/' . $this->getData('gminy.id') . '/dzielnice/' . $this->getId();
+    }
+    
+    public function getShortLabel()
+    {
+	    return 'Dzielnica';
+    }
+    
 }
