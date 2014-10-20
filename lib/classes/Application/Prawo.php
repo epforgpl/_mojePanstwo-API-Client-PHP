@@ -17,6 +17,16 @@ class Prawo extends Application
 	    return $this->request('types');
     }
     
+    public function getData()
+    {
+	    return $this->request('data');
+    }
+    
+    public function getKeywords()
+    {
+	    return $this->request('keywords');
+    }    
+    
     public function search($q)
     {
         
