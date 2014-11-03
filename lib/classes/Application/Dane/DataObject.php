@@ -30,6 +30,8 @@ class DataObject extends \MP\API
     public $id;
     public $dataset;
     public $object_id;
+    public $global_id;
+    public $slug;
     public $hl = null;
 
     public function __construct($params = array())
@@ -38,7 +40,9 @@ class DataObject extends \MP\API
         $this->data = $params['data'];
         $this->dataset = $params['dataset'];
         $this->id = $params['id'];
-        $this->object_id = $params['object_id'];
+        $this->object_id = $params['global_id'];
+        $this->global_id = $params['global_id'];
+        $this->slug = $params['slug'];
 
         if (isset($params['score']))
             $this->layers['score'] = $params['score'];
@@ -46,7 +50,20 @@ class DataObject extends \MP\API
         if (isset($params['hl'])) {
             $this->hl = $params['hl'];
         }
-
+        
+        $temp = array();
+        foreach( $this->data as $key => $val ) {
+        
+        	$p = strpos($key, $this->dataset.'.');
+        
+        	if( $p===0 )
+        		$temp[] = substr($key, strlen($this->dataset)+1);
+        		
+        }
+        
+        foreach( $temp as $t )
+        	$this->data[ $t ] = $this->data[ $this->dataset . '.' . $t ];
+        
         $this->routes = array_merge($this->_routes, $this->routes);
 
     }
@@ -136,6 +153,11 @@ class DataObject extends \MP\API
     {
         return $this->getData('id');
     }
+    
+    public function getGlobalId()
+    {
+        return $this->global_id;
+    }
 
     public function getDate()
     {
@@ -145,6 +167,11 @@ class DataObject extends \MP\API
     public function getTime()
     {
         return @$this->getData($this->routes['time']);
+    }
+    
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     public function getTitle()
@@ -204,6 +231,9 @@ class DataObject extends \MP\API
         $output = '/dane/' .
             $this->getDataset() . '/' .
             $this->getId();
+            
+        if( $slug = $this->getSlug() )
+        	$output .= ',' . $slug;
 
         return $output;
 
