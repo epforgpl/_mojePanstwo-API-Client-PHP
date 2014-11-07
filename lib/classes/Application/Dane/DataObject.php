@@ -70,7 +70,7 @@ class DataObject extends \MP\API
 
     public function loadLayer($layer, $params = array())
     {
-        $this->layers[$layer] = $this->request('dane/dataset/' . $this->dataset . '/' . $this->object_id . '/layers/' . $layer, $params, 'POST');
+        $this->layers[$layer] = $this->request('dane/dataset/' . $this->getDataset() . '/' . $this->getId() . '/layers/' . $layer, $params, 'POST');
         return $this->getLayer($layer);
 
     }

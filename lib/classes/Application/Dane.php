@@ -41,7 +41,7 @@ class Dane extends Application
     public function getDataset($alias, $params = array())
     {
         if ($alias) {
-            $ret = @$this->request('dataset/' . $alias, $params);
+            $ret = @$this->request('dataset/' . $alias, $params);            
             return $ret['dataset'];
         } else {
             return false;

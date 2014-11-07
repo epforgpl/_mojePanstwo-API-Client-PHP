@@ -24,12 +24,42 @@ class Sejm_glosowania extends DocDataObject
     );
     
     protected $hl_fields = array(
-    	'wynik_id', 'sejm_posiedzenia.tytul', 'numer',
+    	'wynik_id',
     );
     
     public function getLabel()
     {
         return 'Głosowanie w Sejmie';
+    }
+    
+    public function getPosition() {
+	    return '#' . $this->getData('numer');
+    }
+    
+    public function getUrl() {
+	    
+	    $output = '/dane';
+	    
+	    if( $this->getData('punkt_id') ) {
+		    
+	    	$output .= '/sejm_posiedzenia_punkty/' . $this->getData('punkt_id');
+	    	
+	    	if( $this->getData('debata_id') ) {
+		    
+		    	$output .= '/debaty/' . $this->getData('debata_id');
+		    	
+		    }
+	    	
+	    } elseif( $this->getData('debata_id') ) {
+		    
+	    	$output .= '/sejm_debaty/' . $this->getData('debata_id');
+	    		    
+	    }
+	    
+	    $output .= '/glosowania/' . $this->getId();
+	    
+	    return $output;
+	    
     }
 
 }

@@ -17,7 +17,7 @@ class Sp_orzeczenia extends DataObject
     );
 	
 	protected $hl_fields = array(
-    	'wydzial', 'podstawa_prawna', 'hasla_tematyczne'
+    	'wydzial', 'hasla_tematyczne'
     );
 	
     public function getLabel()

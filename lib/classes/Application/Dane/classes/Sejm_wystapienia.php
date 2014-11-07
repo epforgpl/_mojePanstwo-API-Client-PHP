@@ -40,20 +40,43 @@ class Sejm_wystapienia extends DocDataObject
         return '<strong>Wystąpienie</strong> w Sejmie';
     }
 
-    public function getThumbnailUrl($size = false)
+    public function getThumbnailUrl($size = '0')
     {
 
-        /*
         return ($this->getData('ludzie.avatar') == '1') ?
-            'http://resources.sejmometr.pl/mowcy/a/0/' . $this->getData('ludzie.id') . '.jpg' :
+            'http://resources.sejmometr.pl/mowcy/a/' . $size . '/' . $this->getData('ludzie.id') . '.jpg' :
             'http://sejmometr.pl/g/gp_2.jpg';
-        */
-        return false;
 
     }
     
     public function hasHighlights(){
 	    return false;
+    }
+    
+    public function getUrl() {
+	    
+	    $output = '/dane';
+	    
+	    if( $this->getData('punkt_id') ) {
+		    
+	    	$output .= '/sejm_posiedzenia_punkty/' . $this->getData('punkt_id');
+	    	
+	    	if( $this->getData('debata_id') ) {
+		    
+		    	$output .= '/debaty/' . $this->getData('debata_id');
+		    	
+		    }
+	    	
+	    } elseif( $this->getData('debata_id') ) {
+		    
+	    	$output .= '/sejm_debaty/' . $this->getData('debata_id');
+	    		    
+	    }
+	    
+	    $output .= '/wystapienia/' . $this->getId();
+	    
+	    return $output;
+	    
     }
 
 }
