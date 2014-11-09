@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_glosowania extends DocDataObject
 {
 	
+	protected $tiny_label = 'Głosowanie';
+	
 	protected $schema = array(
 		array('sejm_posiedzenia.tytul', 'Numer posiedzenia', 'string', array(
 			'link' => array(

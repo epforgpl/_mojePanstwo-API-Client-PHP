@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Crawler_pages extends DataObject
 {
 	
+	protected $tiny_label = 'Strona';
+	
 	protected $schema = array(
 		array('liczba_rozmiar', 'Rozmiar', 'integer', array(
 			'format' => 'bytes',

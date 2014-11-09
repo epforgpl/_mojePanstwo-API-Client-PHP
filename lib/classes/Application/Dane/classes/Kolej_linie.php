@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Kolej_linie extends DataObject
 {
 	
+	protected $tiny_label = 'Linia kolejowa';
+	
 	protected $schema = array(
 		array('trasa_opis', 'Trasa'),
 		array('liczba_stacji', 'Liczba stacji przestankowych', 'integer'),

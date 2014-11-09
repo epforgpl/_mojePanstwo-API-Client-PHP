@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_komisje_posiedzenia extends DocDataObject
 {
 	
+	protected $tiny_label = 'Samorząd';
+	
 	protected $schema = array(
 		array('krakow_komisje.nazwa', '', 'string', array(
 			'link' => array(

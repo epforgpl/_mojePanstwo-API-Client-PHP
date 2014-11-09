@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Senat_druki extends DocDataObject
 {
 	
+	protected $tiny_label = 'Druk senacki';
+	
 	protected $schema = array(
 		array('numer', 'Numer'),
 	);

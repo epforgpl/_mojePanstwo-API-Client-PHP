@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Crawler_sites extends DataObject
 {
 	
+	protected $tiny_label = 'Portal';
+	
 	protected $schema = array(
 		array('url', 'URL'),
 		array('liczba_dokumentow', 'Strony'),

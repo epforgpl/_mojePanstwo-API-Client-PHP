@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_kluby extends DocDataObject
 {
 	
+	protected $tiny_label = 'Klub sejmowy';
+	
 	protected $schema = array(
 		array('liczba_poslow', 'Liczba posłów'),
 	);

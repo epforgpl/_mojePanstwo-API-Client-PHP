@@ -23,6 +23,7 @@ class DataObject extends \MP\API
     
     protected $routes = array();
 	protected $hl_fields = array();
+	protected $tiny_label = '';
     public $force_hl_fields = false;
     
     public $data;
@@ -33,6 +34,7 @@ class DataObject extends \MP\API
     public $global_id;
     public $slug;
     public $hl = null;
+    
 
     public function __construct($params = array())
     {
@@ -257,6 +259,10 @@ class DataObject extends \MP\API
     public function getHighlightsFields()
     {
 	    return array();
+    }
+    
+    public function getTinyLabel() {
+	    return $this->tiny_label;
     }
 	
 	public function getSchemaForFieldname( $fieldname )

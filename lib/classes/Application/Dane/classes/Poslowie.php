@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Poslowie extends DataObject
 {
-
+	
+	protected $tiny_label = 'Poseł';
+	
     protected $schema = array(
 		array('sejm_kluby.nazwa', '', 'string', array(
 			'img' => 'http://resources.sejmometr.pl/s_kluby/{$klub_id}_a_t.png',

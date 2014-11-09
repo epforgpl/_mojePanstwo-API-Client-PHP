@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Prawo_hasla extends DataObject
 {
 	
+	protected $tiny_label = 'Temat w prawie';
+	
 	protected $schema = array(
 		array('liczba_aktow', 'Liczba aktów'),
 	);

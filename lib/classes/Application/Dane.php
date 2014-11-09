@@ -120,15 +120,9 @@ class Dane extends Application
 		$output = array();
 		$data = $this->request('dataobjects/suggest', $params);
 				
-        if (isset($data['objects']['dataobjects'])) {
-            foreach ($data['objects']['dataobjects'] as $object) {
-            	            	
-            	$obj = $this->interpretateObject($object);
-            	$obj->layers['label'] = $object['label'];
-                $output[] = $obj;
-                
-            }
-        }
+        if (isset($data['objects']['dataobjects'])) 
+            foreach ($data['objects']['dataobjects'] as $object) 
+                $output[] = $this->interpretateObject($object);
 				
         return $output;
 		

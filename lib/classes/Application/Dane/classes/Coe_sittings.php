@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Coe_sittings extends DataObject
 {
 	
+	protected $tiny_label = 'Rada Europy';
+		
 	protected $schema = array(
 		array('powiazania', 'Związany z'),
 	);

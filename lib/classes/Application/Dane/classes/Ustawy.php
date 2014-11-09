@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Ustawy extends DataObject
 {
 	
+	protected $tiny_label = 'Ustawa';
+	
 	protected $schema = array(
 		array('prawo.status_id', 'Status', 'string', array(
 			'dictionary' => array(

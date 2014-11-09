@@ -12,6 +12,8 @@ namespace MP\Dane;
 class Poslowie_wspolpracownicy extends DocDataObject
 {
 	
+	protected $tiny_label = 'Osoba';
+	
 	protected $schema = array(
 		array('poslowie.nazwa', 'Zatrudniający', 'string', array(
 			'link' => array(

@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Rady_gmin_wystapienia extends DocDataObject
 {
 	
+	protected $tiny_label = 'Wystąpienie';
+	
 	protected $schema = array(
 		array('krakow_posiedzenia_punkty.tytul', 'Debata', 'string', array(
 			'link' => array(

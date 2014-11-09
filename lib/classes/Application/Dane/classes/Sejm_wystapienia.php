@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_wystapienia extends DocDataObject
 {
 	
+	protected $tiny_label = 'Wystąpienie w Sejmie';
+	
 	public function __construct($params = array())
     {
         parent::__construct($params);
@@ -17,7 +19,6 @@ class Sejm_wystapienia extends DocDataObject
 				'dataset' => 'poslowie',
 				'object_id' => '$ludzie.posel_id',
 			),
-			'img' => 'http://resources.sejmometr.pl/mowcy/a/2/{$ludzie.id}.jpg',
 		)),
 		array('sejm_debaty.tytul', 'Debata', 'string', array(
 			'truncate' => 90,
@@ -44,7 +45,7 @@ class Sejm_wystapienia extends DocDataObject
     {
 
         return ($this->getData('ludzie.avatar') == '1') ?
-            'http://resources.sejmometr.pl/mowcy/a/' . $size . '/' . $this->getData('ludzie.id') . '.jpg' :
+            'http://resources.sejmometr.pl/mowcy/a/0/' . $this->getData('ludzie.id') . '.jpg' :
             'http://sejmometr.pl/g/gp_2.jpg';
 
     }

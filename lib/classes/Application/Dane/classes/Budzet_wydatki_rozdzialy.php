@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Budzet_wydatki_rozdzialy extends DataObject
 {
 	
+	protected $tiny_label = 'Budżet';
+	
 	protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

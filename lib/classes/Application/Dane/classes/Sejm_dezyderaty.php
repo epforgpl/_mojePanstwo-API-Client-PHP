@@ -11,6 +11,9 @@ namespace MP\Dane;
 
 class Sejm_dezyderaty extends DocDataObject
 {
+	
+	protected $tiny_label = 'Sejm';
+	
     public function getTitle()
     {
         return $this->getData('tytul');

@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Rady_gmin_interpelacje extends DocDataObject
 {
 	
+	protected $tiny_label = 'Interpelacja';
+	
 	protected $schema = array(
 		array('posiedzenie_nr', 'Posiedzenie nr'),
 		array('radni_gmin.nazwa', 'Autor', 'string', array(

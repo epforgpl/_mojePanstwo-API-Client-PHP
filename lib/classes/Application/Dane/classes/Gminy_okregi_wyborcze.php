@@ -4,6 +4,9 @@ namespace MP\Dane;
 
 class Gminy_okregi_wyborcze extends DataObject
 {
+	
+	protected $tiny_label = 'Okręg wyborczy';
+	
 	protected $schema = array(
 		array('liczba_wyborcow', 'Liczba wyborców', 'integer'),
 		array('liczba_kandydatow', 'Liczba kandydatów', 'integer'),

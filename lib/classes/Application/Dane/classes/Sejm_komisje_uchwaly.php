@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_komisje_uchwaly extends DocDataObject
 {
 	
+	protected $tiny_label = 'Sejm';
+	
 	protected $schema = array(
 		array('poslowie.nazwa', 'Ukarany poseł', 'string', array(
 			'link' => array(

@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Krakow_oswiadczenia extends DocDataObject
 {
-		
+	
+	protected $tiny_label = 'Oświadczenie majątkowe';
+	
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',

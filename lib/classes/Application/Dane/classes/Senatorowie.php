@@ -10,7 +10,10 @@ namespace MP\Dane;
 
 
 class Senatorowie extends DocDataObject
-{
+{	
+	
+	protected $tiny_label = 'Senator';
+	
     public function getLabel()
     {
         return 'Senator';

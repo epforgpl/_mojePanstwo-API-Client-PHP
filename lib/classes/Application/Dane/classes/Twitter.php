@@ -6,6 +6,8 @@ namespace MP\Dane;
 class Twitter extends DocDataObject
 {
 	
+	protected $tiny_label = 'Tweet';
+	
 	protected $schema = array(
 		array('czas_utworzenia', 'Data publikacji', 'datetime'),
 		array('html', 'Treść', 'string'),

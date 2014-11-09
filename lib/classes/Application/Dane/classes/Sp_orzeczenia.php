@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sp_orzeczenia extends DataObject
 {
 	
+	protected $tiny_label = 'Orzeczenie sądu';
+	
 	protected $schema = array(
 		array('wydzial', 'Wydział'),
 		array('podstawa_prawna', 'Podstawa prawna'),

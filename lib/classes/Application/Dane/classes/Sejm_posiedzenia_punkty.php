@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_posiedzenia_punkty extends DataObject
 {
 	
+	protected $tiny_label = 'Sejm';
+	
 	protected $schema = array(
 		array('sejm_posiedzenia.tytul', 'Posiedzenie', 'string', array(
 			'link' => array(

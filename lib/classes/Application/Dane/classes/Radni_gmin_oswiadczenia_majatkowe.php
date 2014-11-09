@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Radni_gmin_oswiadczenia_majatkowe extends DocDataObject
 {
 	
+	protected $tiny_label = 'Oświadczenie majątkowe';
+	
 	protected $schema = array(
 	);
 	

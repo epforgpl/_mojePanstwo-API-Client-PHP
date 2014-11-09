@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Dotacje_ue extends DataObject
 {
 	
+	protected $tiny_label = 'Dotacja UE';
+	
 	protected $schema = array(
 		array('symbol', 'Umowa'),
 		array('beneficjent_nazwa', 'Nazwa', 'string', array(

@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Gminy extends DataObject
 {
-
+	
+	protected $tiny_label = 'Gmina';
+	
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

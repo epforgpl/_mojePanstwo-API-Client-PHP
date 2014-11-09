@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krs_podmioty extends DataObject
 {
 	
+	protected $tiny_label = 'Organizacja';
+	
 	protected $schema = array(
 		array('id', 'ID'),
 		array('krs', 'KRS'),

@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Poslowie_glosy extends DataObject
 {
 	
+	protected $tiny_label = 'Głos';
+	
 	protected $schema = array(
 		array('sejm_glosowania.czas', 'Data', 'date', array(
 			'noHl' => true,

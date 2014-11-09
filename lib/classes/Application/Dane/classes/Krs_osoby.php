@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krs_osoby extends DataObject
 {
 	
+	protected $tiny_label = 'Osoba';
+	
 	protected $schema = array(
 		array('powiazania', 'Związany z'),
 	);

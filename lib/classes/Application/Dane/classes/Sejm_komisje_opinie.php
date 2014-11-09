@@ -11,6 +11,9 @@ namespace MP\Dane;
 
 class Sejm_komisje_opinie extends DocDataObject
 {
+	
+	protected $tiny_label = 'Sejm';
+	
     public function getLabel()
     {
         return '<strong>Opinia</strong> ' . $this->getData('sejm_komisje.dopelniacz');

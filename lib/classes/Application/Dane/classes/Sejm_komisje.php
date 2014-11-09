@@ -11,7 +11,9 @@ namespace MP\Dane;
 
 class Sejm_komisje extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Komisja sejmowa';
+	
     public function getLabel()
     {
         return 'Komisja sejmowa';

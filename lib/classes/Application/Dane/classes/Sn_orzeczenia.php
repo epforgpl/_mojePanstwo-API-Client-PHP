@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Sn_orzeczenia extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Orzeczenie sądu';
+	
     protected $routes = array(
         'shortTitle' => 'sygnatura',
         'date' => 'data',
