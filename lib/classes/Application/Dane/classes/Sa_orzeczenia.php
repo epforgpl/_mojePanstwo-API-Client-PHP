@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sa_orzeczenia extends DataObject
 {
 	
+	protected $tiny_label = 'Orzeczenie sądu';
+	
 	protected $schema = array(
 		array('skarzony_organ_str', 'Skarżony organ'),
 		array('wynik_str', 'Wynik'),
@@ -21,7 +23,7 @@ class Sa_orzeczenia extends DataObject
     );
 	
 	protected $hl_fields = array(
-    	'skarzony_organ_str', 'wynik_str', 'dlugosc_rozpatrywania'
+    	'skarzony_organ_str', 'wynik_str'
     );
 
 }

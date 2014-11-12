@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_glosowania_glosy extends DocDataObject
 {
 	
+	protected $tiny_label = 'Głos';
+	
 	protected $schema = array(
 		array('druk_id', 'Druk', 'string', array(
 			'link' => array(

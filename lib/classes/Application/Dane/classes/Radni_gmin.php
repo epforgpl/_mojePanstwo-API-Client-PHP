@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Radni_gmin extends DataObject
 {
 	
+	protected $tiny_label = 'Radny gminy';
+	
 	protected $schema = array(
 		array('gminy.nazwa', 'Gmina', 'string', array(
 			'link' => array(

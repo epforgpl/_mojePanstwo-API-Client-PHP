@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Poslowie_oswiadczenia_majatkowe extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Oświadczenie majątkowe';
+	
     protected $routes = array(
         'date' => 'data',
         'shortTitle' => 'label',

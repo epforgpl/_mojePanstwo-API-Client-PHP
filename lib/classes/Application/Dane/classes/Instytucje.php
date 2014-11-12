@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Instytucje extends DataObject
 {
-
+	
+	protected $tiny_label = 'Instytucja';
+	
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Wybory_darczyncy extends DocDataObject
 {
 	
+	protected $tiny_label = 'Osoba';
+	
 	protected $schema = array(
 		array('rady_gmin_komitety.skrot_nazwy', 'Obdarowany komitet', 'string'),
 	);

@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Zamowienia_publiczne extends DocDataObject
 {
 	
+	protected $tiny_label = 'Zamówienie publiczne';
+	
 	protected $schema = array(
 	
 		array('zamowienia_publiczne_tryby.nazwa', false),

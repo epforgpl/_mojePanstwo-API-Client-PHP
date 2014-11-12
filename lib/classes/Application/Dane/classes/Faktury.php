@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Faktury extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Faktura';
+	
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

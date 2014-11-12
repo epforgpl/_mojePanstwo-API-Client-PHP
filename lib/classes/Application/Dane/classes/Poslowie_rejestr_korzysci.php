@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Poslowie_rejestr_korzysci extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Rejestr korzyści';
+	
     protected $routes = array(
         'date' => 'data',
         'shortTitle' => 'label',

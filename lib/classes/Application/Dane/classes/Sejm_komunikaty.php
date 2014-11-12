@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Sejm_komunikaty extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Sejm';
+	
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',

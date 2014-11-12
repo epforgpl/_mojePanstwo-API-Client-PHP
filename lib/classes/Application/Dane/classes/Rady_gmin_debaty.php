@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Rady_gmin_debaty extends DocDataObject
 {
 	
+	protected $tiny_label = 'Samorząd';
+	
 	protected $schema = array(
 		array('gminy.nazwa', 'Gmina', 'string', array(
 			'link' => array(
@@ -51,7 +53,7 @@ class Rady_gmin_debaty extends DocDataObject
     
     public function getUrl()
     {
-	    return '/dane/gminy/' . $this->getData('gminy.id') . '/debaty/' . $this->getId();
+	    return '/dane/gminy/' . $this->getData('gminy.id') . '/punkty/' . $this->getId();
     }
 
 }

@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Msig_dzialy extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'MSiG Dział';
+	
     protected $routes = array(
         'date' => 'msig.data',
     );

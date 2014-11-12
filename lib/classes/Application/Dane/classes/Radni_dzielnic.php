@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Radni_dzielnic extends DataObject
 {	
-
+	
+	protected $tiny_label = 'Radny dzielnicy';
+	
 	protected $schema = array(
 		array('dzielnice.nazwa', 'Dzielnica', 'string', array(
 			'link' => array(

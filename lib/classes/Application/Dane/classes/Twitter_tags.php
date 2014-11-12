@@ -11,6 +11,9 @@ namespace MP\Dane;
 
 class Twitter_tags extends DocDataObject
 {
+	
+	protected $tiny_label = 'Twitter Tag';
+	
     public function getLabel()
     {
         return 'Hashtag w tweetach posłów';

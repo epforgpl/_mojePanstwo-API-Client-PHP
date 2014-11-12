@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_posiedzenia_punkty extends DocDataObject
 {
 	
+	protected $tiny_label = 'Samorząd';
+	
 	protected $schema = array(
 		array('druk_id', 'Druk', 'string', array(
 			'link' => array(

@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Rady_druki extends DocDataObject
 {
-		
+	
+	protected $tiny_label = 'Samorząd';
+	
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',

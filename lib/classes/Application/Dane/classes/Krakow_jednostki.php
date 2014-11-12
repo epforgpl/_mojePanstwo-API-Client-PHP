@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_jednostki extends DataObject
 {
 	
+	protected $tiny_label = 'Instytucja';
+	
 	protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

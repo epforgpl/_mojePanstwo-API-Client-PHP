@@ -11,6 +11,9 @@ namespace MP\Dane;
 
 class Sp_tezy extends DocDataObject
 {
+	
+	protected $tiny_label = 'Teza sądu';
+	
     public function getLabel()
     {
         return '<strong>Teza</strong> ' . $this->getData('sady_sp.dopelniacz');

@@ -12,6 +12,8 @@ namespace MP\Dane;
 class Sejm_debaty extends DocDataObject
 {
 	
+	protected $tiny_label = 'Sejm';
+	
 	protected $schema = array(
 		array('sejm_posiedzenia.tytul', 'Numer posiedzenia', 'string', array(
 			'link' => array(

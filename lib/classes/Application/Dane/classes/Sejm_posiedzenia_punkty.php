@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_posiedzenia_punkty extends DataObject
 {
 	
+	protected $tiny_label = 'Sejm';
+	
 	protected $schema = array(
 		array('sejm_posiedzenia.tytul', 'Posiedzenie', 'string', array(
 			'link' => array(
@@ -25,12 +27,12 @@ class Sejm_posiedzenia_punkty extends DataObject
     );
     
     protected $hl_fields = array(
-    	'sejm_posiedzenia.tytul', 'numer', 'liczba_wystapien', 'liczba_glosowan',
+    	'sejm_posiedzenia.tytul', 'liczba_wystapien', 'liczba_glosowan',
     );
 
     public function getLabel()
     {
-        return '<strong>Punkt</strong> porządku dziennego w Sejmie';
+        return '<strong>Punkt #' . $this->getData('numer') . '</strong> porządku dziennego w Sejmie';
     }
 
 

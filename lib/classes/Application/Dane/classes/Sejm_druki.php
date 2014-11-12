@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Sejm_druki extends DocDataObject
 {
 	
+	protected $tiny_label = 'Druk sejmowy';
+	
 	protected $schema = array(
 		array('druk_typ_nazwa', 'Typ druku'),
 		array('numer', 'Numer druku')

@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Prawo_lokalne extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Akt prawny';
+	
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul_skrocony',

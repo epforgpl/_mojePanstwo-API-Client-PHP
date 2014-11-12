@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Senatorowie_oswiadczenia_majatkowe extends DocDataObject
 {
 	
+	protected $tiny_label = 'Oświadczenia majątkowe';
+	
     public function getTitle()
     {
         return 'Oświadczenie majątkowe senatora ' . $this->getData('senatorowie.nazwa');

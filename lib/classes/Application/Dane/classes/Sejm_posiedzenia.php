@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Sejm_posiedzenia extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Sejm';
+	
     protected $routes = array(
         'shortTitle' => 'numer',
         'date' => 'data_start',
@@ -23,10 +25,11 @@ class Sejm_posiedzenia extends DocDataObject
 
     public function getTitle()
     {
+	    	    
     	if( $this->getData('numer') )
 	        return 'Posiedzenie Sejmu nr ' . $this->getData('numer');
 	    else
-	    	return $this->getData('tytul');
+	    	return str_replace('Posiedzenie Sejmu nr ', '', $this->getData('tytul'));
     }
     
     public function getShortTitle()

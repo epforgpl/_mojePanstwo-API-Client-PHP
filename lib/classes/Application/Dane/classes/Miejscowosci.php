@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Miejscowosci extends DataObject
 {
 	
+	protected $tiny_label = 'Miejscowość';
+	
 	protected $schema = array(
 		array('gminy.nazwa', 'Gmina', 'string', array(
 			'link' => array(

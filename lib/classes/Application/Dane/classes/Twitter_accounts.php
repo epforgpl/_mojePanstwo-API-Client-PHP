@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Twitter_accounts extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Konto Twitter';
+	
     protected $schema = array(
 		array('liczba_tweetow', 'Liczba tweetów', 'integer'),
 		array('liczba_retweetow_wlasnych', 'Liczba retweetów', 'integer'),

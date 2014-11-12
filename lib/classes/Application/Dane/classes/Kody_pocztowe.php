@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Kody_pocztowe extends DataObject
 {
 	
+	protected $tiny_label = 'Kod pocztowy';
+	
 	protected $schema = array(
 		array('gminy_str', 'Gminy'),
 	);

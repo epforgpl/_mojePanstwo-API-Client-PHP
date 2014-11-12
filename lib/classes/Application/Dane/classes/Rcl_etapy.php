@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Rcl_etapy extends DocDataObject
 {
 	
+	protected $tiny_label = 'Etap w legislacji';
+	
 	protected $schema = array(
 		array('tytul_projektu', 'Dotyczy projektu'),
 	);

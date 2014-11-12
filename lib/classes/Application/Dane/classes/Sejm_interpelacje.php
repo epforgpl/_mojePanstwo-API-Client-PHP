@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Sejm_interpelacje extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Interpelacja';
+	
     public function __construct($params = array())
     {
         parent::__construct($params);

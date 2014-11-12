@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Prawo_projekty extends DocDataObject
 {
 	
+	protected $tiny_label = 'Projekt aktu prawnego';
+	
 	protected $schema = array(
 		array('autorzy_html', ''),
 		array('opis', 'Opis', 'string', array(

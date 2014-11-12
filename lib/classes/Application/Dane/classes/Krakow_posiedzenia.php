@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_posiedzenia extends DocDataObject
 {
 	
+	protected $tiny_label = 'Samorząd';
+		
 	protected $schema = array(
 		array('numer', 'Numer posiedzenia'),
 	);

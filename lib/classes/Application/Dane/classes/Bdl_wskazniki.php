@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Bdl_wskazniki extends DataObject
 {
 	
+	protected $tiny_label = 'Wskaźniki';
+	
 	protected $schema = array(
 		array('kategoria_tytul', 'Kategoria', 'string', array(
 			'link' => array(

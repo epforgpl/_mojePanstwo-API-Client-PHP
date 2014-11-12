@@ -11,6 +11,9 @@ namespace MP\Dane;
 
 class Sa_sedziowie extends DocDataObject
 {
+	
+	protected $tiny_label = 'Sędzia';
+	
     public function getLabel()
     {
         return '<strong>Sędzia</strong> sądu administracyjnego';

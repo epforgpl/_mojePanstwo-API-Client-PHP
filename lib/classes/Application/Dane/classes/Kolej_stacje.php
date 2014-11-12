@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Kolej_stacje extends DataObject
 {
-
+	
+	protected $tiny_label = 'Stacja kolejowa';
+	
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

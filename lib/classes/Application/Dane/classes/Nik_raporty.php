@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Nik_raporty extends DocDataObject
 {
 	
+	protected $tiny_label = 'Raport NIK';
+	
 	protected $schema = array(
 		array('data_publikacji', 'Data publikacji', 'date'),
 		array('data_moderacji', 'Data moderacji', 'date'),

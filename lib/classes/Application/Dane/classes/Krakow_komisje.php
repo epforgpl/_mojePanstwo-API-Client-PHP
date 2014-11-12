@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Krakow_komisje extends DataObject
 {
 	
+	protected $tiny_label = 'Samorząd';
+	
 	protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

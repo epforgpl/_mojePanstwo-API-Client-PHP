@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Umowy extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'Umowa';
+	
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',

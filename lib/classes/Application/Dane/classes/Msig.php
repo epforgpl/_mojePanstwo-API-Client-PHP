@@ -4,7 +4,9 @@ namespace MP\Dane;
 
 class Msig extends DocDataObject
 {
-
+	
+	protected $tiny_label = 'MSiG';
+	
     protected $routes = array(
         'date' => 'data',
     );

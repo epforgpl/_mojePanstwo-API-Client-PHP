@@ -5,6 +5,8 @@ namespace MP\Dane;
 class Prawo extends DocDataObject
 {
 	
+	protected $tiny_label = 'Prawo';
+	
 	protected $schema = array(
 		array('id', 'ID'),
 		array('sygnatura', 'Sygnatura'),
