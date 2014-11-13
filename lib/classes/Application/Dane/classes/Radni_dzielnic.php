@@ -73,6 +73,6 @@ class Radni_dzielnic extends DataObject
     
     public function getUrl()
     {
-	    return '/dane/radni_dzielnic/' . $this->getId();
+	    return '/dane/gminy/903,krakow/dzielnice/' . $this->getData('dzielnica_id') . '/radni/' . $this->getId();
     }
 }
