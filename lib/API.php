@@ -365,6 +365,11 @@ class API
     {
         return new Finanse( $this->getOptions() );
     }
+    
+    final public function WyjazdyPoslow()
+    {
+        return new WyjazdyPoslow( $this->getOptions() );
+    }
 
     final public function document($id)
     {
