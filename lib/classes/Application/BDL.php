@@ -37,5 +37,8 @@ class BDL extends Application
         ));
         return @$data['data'];
     }
-    
+
+    public function getCategoriesTree() {
+        return @$this->request('categories');
+    }
 }
