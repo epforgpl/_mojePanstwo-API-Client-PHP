@@ -370,6 +370,11 @@ class API
     {
         return new WyjazdyPoslow( $this->getOptions() );
     }
+    
+    final public function WydatkiPoslow()
+    {
+        return new WydatkiPoslow( $this->getOptions() );
+    }
 
     final public function document($id)
     {

@@ -21,6 +21,7 @@ require_once('lib/classes/Application/Prawo.php');
 require_once('lib/classes/Application/Geo.php');
 require_once('lib/classes/Application/PanstwoInternet.php');
 require_once('lib/classes/Application/WyjazdyPoslow.php');
+require_once('lib/classes/Application/WydatkiPoslow.php');
 require_once('lib/classes/Application/Media.php');
 require_once('lib/classes/Application/MapaPrawa.php');
 require_once('lib/classes/Application/Pisma.php');
