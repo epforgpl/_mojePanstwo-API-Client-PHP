@@ -51,7 +51,7 @@ class API
 
     public function request($resource, $params = array(), $method = 'GET')
     {
-    	    	    	
+    	 	    	
         if (!$resource)
             throw new ApiBadInvocation('Resource has to be specified');
 				
@@ -87,22 +87,22 @@ class API
             CURLOPT_FAILONERROR => false, // doesn't fail on http errors
             CURLOPT_HTTPHEADER => $additional_headers,
         );
-
+        
 
         if ($method == 'POST') {
             $curl_options[CURLOPT_POST] = true;
-            $curl_options[CURLOPT_POSTFIELDS] = $query;            
+            $curl_options[CURLOPT_POSTFIELDS] = $query;         
 		
 		} elseif($method == 'DELETE') {
 			$curl_options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
         }
-
+		
         $curl_options[CURLOPT_URL] = $url;
-        if ($query)
+        if( $query && ($method != 'POST') )
             $curl_options[CURLOPT_URL] .= '?' . $query;
 
         if (defined('MPAPI_DEBUG') && (MPAPI_DEBUG == '1')) {
-            debug($curl_options[CURLOPT_URL], true, false);
+            debug('[' . $method . '] ' . $curl_options[CURLOPT_URL], true, false);
             if (!empty($params))
                 debug($params, true, false);
             if (!empty($additional_headers))

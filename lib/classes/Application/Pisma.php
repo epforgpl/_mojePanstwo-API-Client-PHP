@@ -7,17 +7,21 @@ class Pisma extends Application
 {
     protected $requests_prefix = '/pisma/';
 
-    public function documents_index() {
-        return $this->request('documents');
+    public function index() {
+        return $this->request('index');
     }
 
-    public function document_save($doc) {
+    public function save($doc) {
         if (isset($doc['id']) && $doc['id']) {
-            return $this->request('documents/' . $doc['id'], $doc, 'POST');
+            return $this->request($doc['id'], $doc, 'POST');
 
         } else {
-            return $this->request('documents', $doc, 'POST');
+            return $this->request('index', $doc, 'POST');
         }
+    }
+    
+    public function load($id) {
+	    return $this->request($id);
     }
 
     public function document_get($id) {
