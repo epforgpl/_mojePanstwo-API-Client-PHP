@@ -27,6 +27,10 @@ class Pisma extends Application
     public function getTemplatesGrouped() {
         return $this->request('templates/grouped');
     }
+    
+    public function getTemplate($id) {
+        return $this->request('templates/' . $id);
+    }
 
     public function document_get($id) {
         return $this->request('documents/' . $id);
