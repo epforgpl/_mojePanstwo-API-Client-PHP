@@ -288,6 +288,9 @@ class DataObject extends \MP\API
 	{
 		$output = array();
 		
+		if( is_array($fieldsPush) )
+			$fieldsPush = $fieldsPush[0];
+		
 		$fields = ($fields===false) ? $this->hl_fields : $fields;
 		if(
 			$fieldsPush && 

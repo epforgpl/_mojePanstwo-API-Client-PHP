@@ -20,6 +20,7 @@ class Poslowie extends DataObject
 		array('liczba_wypowiedzi', 'Liczba wystąpień', 'integer'),
 		array('liczba_przelotow', 'Liczba przelotów', 'integer'),
 		array('liczba_przejazdow', 'Liczba przejazdów', 'integer'),
+		array('wartosc_wyjazdow', 'Koszt wyjazdów zagranicznych', 'pln'),
 	);
     
     protected $routes = array(
