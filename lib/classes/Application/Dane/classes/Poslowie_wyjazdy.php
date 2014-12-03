@@ -21,6 +21,11 @@ class Poslowie_wyjazdy extends DataObject
         return 'Wyjazd zagraniczny posła';
     }
     
+    public function getDate()
+    {
+        return $this->getData('poslowie_wyjazdy_wydarzenia.data_start');
+    }
+    
     public function getShortTitle(){
 	    
 	    return '<a href="/dane/poslowie/' . $this->getData('poslowie.id') . '">' . $this->getData('poslowie.nazwa') . '</a> <br/> <small><a href="/dane/poslowie_wyjazdy_wydarzenia/' . $this->getData('poslowie_wyjazdy_wydarzenia.id') . '">' . $this->getData('poslowie_wyjazdy_wydarzenia.delegacja') . '</a></small>';
