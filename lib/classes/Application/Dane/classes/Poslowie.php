@@ -21,6 +21,19 @@ class Poslowie extends DataObject
 		array('liczba_przelotow', 'Liczba przelotów', 'integer'),
 		array('liczba_przejazdow', 'Liczba przejazdów', 'integer'),
 		array('wartosc_wyjazdow', 'Koszt wyjazdów zagranicznych', 'pln'),
+		
+		array('wartosc_biuro_wynagrodzenia_pracownikow', 'Wynagrodzenia pracowników', 'pln'),
+		array('wartosc_biuro_zlecenia', 'Zlecenia i umowy o dzieło', 'pln'),
+		array('wartosc_biuro_ekspertyzy', 'Ekspertyzy, opinie, tłumaczenia', 'pln'),
+		array('wartosc_biuro_telekomunikacja', 'Usługi telekomunikacyjne', 'pln'),
+		array('wartosc_biuro_spotkania', 'Wynajmowanie sal na spotkania z wyborcami', 'pln'),
+		array('wartosc_biuro_przejazdy', 'Przejazdy samochodem', 'pln'),
+		array('wartosc_biuro_taksowki', 'Przejazdy taksówkami', 'pln'),
+		array('wartosc_biuro_biuro', 'Wynajęcie i utrzymanie biura', 'pln'),
+		array('wartosc_biuro_materialy_biurowe', 'Materiały biurowe, prasa, środki BHP', 'pln'),
+		array('wartosc_biuro_srodki_trwale', 'Wyposażenie biura (środki trwałe)', 'pln'),
+		array('wartosc_biuro_podroze_pracownikow', 'Podróże pracowników', 'pln'),
+		array('wartosc_biuro_inne', 'Inne', 'pln'),
 	);
     
     protected $routes = array(
