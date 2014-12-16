@@ -28,6 +28,7 @@ class DataObject extends \MP\API
     
     public $data;
     public $layers = array();
+    public $contexts = array();
     public $id;
     public $dataset;
     public $object_id;
@@ -239,6 +240,12 @@ class DataObject extends \MP\API
 
         return $output;
 
+    }
+    
+    public function getSentence() {
+	    
+	    return @$this->contexts[0]['sentence'];
+	    
     }
 
     public function getThumbnailUrl($size = 'default')

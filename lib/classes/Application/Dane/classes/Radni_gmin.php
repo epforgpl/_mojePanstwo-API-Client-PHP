@@ -24,7 +24,7 @@ class Radni_gmin extends DataObject
 			),
 		)),
 
-		array('rady_gmin_komitety.nazwa', 'Komitet wyborczy'),
+		array('komitet', 'Komitet wyborczy'),
 		array('poparcie', 'Poparcie', 'string'),
 		array('rady_gmin_okregi.nr_okregu', 'Numer okręgu', 'integer'),
 
@@ -49,7 +49,7 @@ class Radni_gmin extends DataObject
     );
     
     protected $hl_fields = array(
-    	'gminy.nazwa', 'rady_gmin_komitety.nazwa', 'liczba_glosow'
+    	'gminy.nazwa', 'komitet', 'liczba_glosow'
     );
 
     public function getLabel()

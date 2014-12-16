@@ -30,7 +30,36 @@ class Dane extends Application
 		        	        
         return $ret['datachannels'];
     }
-
+	
+	public function feed($params)
+    {
+	    	    	    
+	    if(
+		    isset($params['dataset']) && 
+		    $params['dataset'] && 
+		    isset($params['id']) && 
+		    $params['id'] 
+		) {
+			
+			$direction = 'desc';
+			if(
+				isset($params['direction']) && 
+				( $params['direction'] == 'asc' )
+			)
+				$direction = 'asc';
+			
+			$this->lastSearchResponse = $this->request($params['dataset'] . '/' . $params['id'] . '/feed', array(
+				'direction' => $direction,
+			));
+	        return isset($this->lastSearchResponse['search']) ? $this->lastSearchResponse['search'] : false;
+			
+		} else {
+			throw new Excpetion('Feed: missing params');
+		}
+	    
+        return $this->request('datasets/index');
+    }
+		
 
     // DATASETS
     public function getDatasets()
@@ -185,7 +214,10 @@ class Dane extends Application
             foreach($object['layers'] as $name => $data )
                 if ($data !== null)
                     $obj->layers[$name] = $data;
-        
+                    
+        if( isset($object['contexts']) && is_array($object['contexts']))
+		    $obj->contexts = $object['contexts'];
+                
         $obj->interpretateRelated();
         
         return $obj;
