@@ -18,6 +18,7 @@ class Sejm_interpelacje_pisma extends DocDataObject
 	protected $schema = array(
 		array('sejm_interpelacje.poslowie_str', 'Od'),
 		array('adresaci_str', 'Do'),
+		array('autor_str', 'Odpowiadający'),
 	);
 	
     protected $routes = array(

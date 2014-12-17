@@ -49,7 +49,7 @@ class Radni_gmin extends DataObject
     );
     
     protected $hl_fields = array(
-    	'gminy.nazwa', 'komitet', 'liczba_glosow'
+    	'gminy.nazwa', 'komitet'
     );
 
     public function getLabel()
