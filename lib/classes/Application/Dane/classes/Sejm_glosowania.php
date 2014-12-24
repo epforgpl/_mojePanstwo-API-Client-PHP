@@ -35,7 +35,8 @@ class Sejm_glosowania extends DocDataObject
     }
     
     public function getPosition() {
-	    return '#' . $this->getData('numer');
+	    // return '#' . $this->getData('numer');
+	    return false;
     }
     
     public function getUrl() {

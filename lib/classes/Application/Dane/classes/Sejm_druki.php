@@ -15,7 +15,7 @@ class Sejm_druki extends DocDataObject
     protected $routes = array(
         'title' => 'tytul',
         'shortTitle' => 'tytul',
-        'date' => 'data_publikacji',
+        'date' => 'data',
         'label' => 'label'
     );
     

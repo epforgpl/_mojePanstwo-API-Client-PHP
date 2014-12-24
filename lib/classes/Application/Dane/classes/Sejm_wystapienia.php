@@ -44,9 +44,7 @@ class Sejm_wystapienia extends DocDataObject
     public function getThumbnailUrl($size = '0')
     {
 
-        return ($this->getData('ludzie.avatar') == '1') ?
-            'http://resources.sejmometr.pl/mowcy/a/1/' . $this->getData('ludzie.id') . '.jpg' :
-            'http://mojepanstwo.pl/Dane/img/avatar_default.jpg';
+        return false;
 
     }
 

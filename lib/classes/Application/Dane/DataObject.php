@@ -247,6 +247,17 @@ class DataObject extends \MP\API
 	    return @$this->contexts[0]['sentence'];
 	    
     }
+    
+    public function getCreator($field = '*') {
+	    
+	    $creator = @$this->contexts[0]['creator'];
+	    
+	    if( $field=='*' )
+	    	return $creator;
+	    else
+	    	return @$creator[ $field ];
+	    	    
+    }
 
     public function getThumbnailUrl($size = 'default')
     {

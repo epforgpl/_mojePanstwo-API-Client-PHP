@@ -47,9 +47,20 @@ class Dane extends Application
 				( $params['direction'] == 'asc' )
 			)
 				$direction = 'asc';
+				
+				
+			$perPage = 20;
+			if( isset($params['perPage']) && $params['perPage'] )
+				$perPage = $params['perPage'];
+				
+			$page = 1;
+			if( isset($params['page']) && $params['page'] )
+				$page = $params['page'];
 			
 			$this->lastSearchResponse = $this->request($params['dataset'] . '/' . $params['id'] . '/feed', array(
 				'direction' => $direction,
+				'perPage' => $perPage,
+				'page' => $page,
 			));
 	        return isset($this->lastSearchResponse['search']) ? $this->lastSearchResponse['search'] : false;
 			
