@@ -57,11 +57,16 @@ class Dane extends Application
 			if( isset($params['page']) && $params['page'] )
 				$page = $params['page'];
 			
-			$this->lastSearchResponse = $this->request($params['dataset'] . '/' . $params['id'] . '/feed', array(
+			$query = array(
 				'direction' => $direction,
 				'perPage' => $perPage,
 				'page' => $page,
-			));
+			);
+			
+			if( isset($params['channel']) && $params['channel'] )
+				$query['channel'] = $params['channel'];
+			
+			$this->lastSearchResponse = $this->request($params['dataset'] . '/' . $params['id'] . '/feed', $query);
 	        return isset($this->lastSearchResponse['search']) ? $this->lastSearchResponse['search'] : false;
 			
 		} else {

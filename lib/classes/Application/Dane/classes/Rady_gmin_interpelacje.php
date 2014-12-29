@@ -29,7 +29,11 @@ class Rady_gmin_interpelacje extends DocDataObject
 	
 	public function getShortTitle()
 	{
-		return lcfirst($this->getData('tytul'));
+		
+		if( stripos($this->getData('tytul'), 'w sprawie')===0 )
+			return $this->getData('tytul');
+		else
+			return 'w sprawie ' . lcfirst($this->getData('tytul'));
 	}
 	
 	public function getShortLabel(){

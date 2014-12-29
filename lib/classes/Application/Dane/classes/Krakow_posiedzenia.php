@@ -42,7 +42,7 @@ class Krakow_posiedzenia extends DocDataObject
     	if( $this->getData('preview_yt_id') )
 	        return 'http://img.youtube.com/vi/' . $this->getData('preview_yt_id') . '/mqdefault.jpg';
 	    else
-	    	return false;
+	        return '/dane/pk/posiedzenie.jpg';
     }
     
     public function getUrl()
