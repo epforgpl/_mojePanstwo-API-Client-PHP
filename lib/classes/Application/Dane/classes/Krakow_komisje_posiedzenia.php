@@ -2,7 +2,7 @@
 
 namespace MP\Dane;
 
-class Krakow_komisje_posiedzenia extends DocDataObject
+class Krakow_komisje_posiedzenia extends DataObject
 {
 	
 	protected $tiny_label = 'Samorząd';
@@ -33,7 +33,7 @@ class Krakow_komisje_posiedzenia extends DocDataObject
     
     public function getShortTitle() {
 	    
-	    return 'Posiedzenie ' . $this->dataSlownie( $this->getData('data') );
+	    return $this->dataSlownie( $this->getData('data') );
 	    
     }
     
@@ -45,7 +45,21 @@ class Krakow_komisje_posiedzenia extends DocDataObject
     
     public function getUrl()
     {
-	    return '/dane/gminy/903/komisje_posiedzenia/' . $this->getId();
+	    return '/dane/gminy/903,krakow/komisje_posiedzenia/' . $this->getId();
     }
-
+	
+	public function getThumbnailUrl($size = '3')
+    {
+    	if( $this->getData('preview_yt_id') )
+	        return 'http://img.youtube.com/vi/' . $this->getData('preview_yt_id') . '/mqdefault.jpg';
+	    else
+	        return '/dane/pk/posiedzenie.jpg';
+    }
+    
+    public function getShortLabel() {
+	    
+	    return 'Posiedzenie Komisji Rady Miasta';
+	    
+    }
+	
 }

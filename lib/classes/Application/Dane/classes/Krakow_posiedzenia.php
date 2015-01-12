@@ -12,9 +12,10 @@ class Krakow_posiedzenia extends DocDataObject
 	);
 	
     protected $routes = array(
-        'title' => 'fullTitle',
-        'shortTitle' => 'fullTitle',
+        'title' => 'data',
+        'shortTitle' => 'data',
         'date' => 'data',
+        'description' => 'desc',
     );
     
     /*
@@ -28,7 +29,7 @@ class Krakow_posiedzenia extends DocDataObject
 
         parent::__construct($params);
 
-        $this->data['fullTitle'] = 'Sesja <strong>' . $this->getData('krakow_sesje.str_numer') . '</strong> - Posiedzenie <strong>#' . $this->getData('numer') . '</strong>';
+        $this->data['desc'] = '<span class="light">Kadencja <strong>' . $this->getData('kadencja_id') . '</strong> <span class="separator">|</span> Sesja <strong>' . $this->getData('krakow_sesje.str_numer') . '</strong> <span class="separator">|</span> Posiedzenie <strong>#' . $this->getData('numer') . '</strong><span>';
 
     }
 	
@@ -50,16 +51,18 @@ class Krakow_posiedzenia extends DocDataObject
 	    return '/dane/gminy/903/posiedzenia/' . $this->getId();
     }
     
-    public function getShortTitle() {
-	    
-	    return $this->data['fullTitle'];
-	    
-    }
-    
     public function getShortLabel() {
 	    
 	    return 'Posiedzenie Rady Miasta';
 	    
+    }
+    
+    public function getShortTitle() {
+	    return $this->dataSlownie( $this->getData('data') );
+    }
+    
+    public function getTitle() {
+	    return $this->getShortTitle();
     }
 
 }
