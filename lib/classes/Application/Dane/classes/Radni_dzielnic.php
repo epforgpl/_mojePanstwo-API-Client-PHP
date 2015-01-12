@@ -71,6 +71,11 @@ class Radni_dzielnic extends DataObject
 	    return 'Radny dzielnicy';
     }
     
+    public function getShortLabel()
+    {
+	    return 'Radny dzielnicy ' . $this->getData('dzielnice.nazwa');
+    }
+    
     public function getUrl()
     {
 	    return '/dane/gminy/903,krakow/dzielnice/' . $this->getData('dzielnica_id') . '/radni/' . $this->getId();

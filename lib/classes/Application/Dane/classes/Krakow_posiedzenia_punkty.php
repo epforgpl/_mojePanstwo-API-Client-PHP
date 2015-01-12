@@ -22,7 +22,7 @@ class Krakow_posiedzenia_punkty extends DocDataObject
         'title' => 'tytul',
         'shortTitle' => 'tytul',
         'date' => 'krakow_posiedzenia.data',
-        'position' => 'numer_punktu',
+        'position' => 'numer_str',
         'description' => 'opis',
     );
     
@@ -61,15 +61,15 @@ class Krakow_posiedzenia_punkty extends DocDataObject
     
 	public function getUrl()
 	{
-		return '/dane/gminy/903/punkty/' . $this->getId();
+		if( 
+		    $this->getData('glosowanie_id') || 
+		    $this->getData('yt_video_id') 
+	    )
+	    	return '/dane/gminy/903/punkty/' . $this->getId();
+	    else
+	    	return false;
+		
 	}
-    
-    public function getPosition()
-    {
-	   return '#' . $this->getData('numer');
-    }
-    
-    
     
     public function hasHighlights(){
 	    return false;

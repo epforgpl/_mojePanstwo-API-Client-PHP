@@ -10,9 +10,15 @@ class Krakow_dzielnice_uchwaly extends DataObject
     protected $routes = array(
         'title' => 'nazwa',
         'shortTitle' => 'nazwa',
+        'date' => 'data_wydania',
     );
 
     public function getLabel()
+    {
+        return 'Uchwała rady dzielnicy ' . $this->getData('dzielnice.nazwa');
+    }
+    
+    public function getShortLabel()
     {
         return 'Uchwała rady dzielnicy ' . $this->getData('dzielnice.nazwa');
     }
@@ -24,7 +30,7 @@ class Krakow_dzielnice_uchwaly extends DataObject
     
     public function getUrl()
     {
-	    return '/dane/gminy/903,krakow/dzielnice/' . $this->getData('dzielnica_id') . '/uchwaly/' . $this->getId();
+	    return '/dane/gminy/903,krakow/dzielnice/' . $this->getData('dzielnica_id') . '/rada_uchwaly/' . $this->getId();
     }
     
     public $force_hl_fields = true;

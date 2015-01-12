@@ -62,7 +62,7 @@ class Krakow_posiedzenia extends DocDataObject
     }
     
     public function getTitle() {
-	    return $this->getShortTitle();
+	    return $this->getShortTitle() . ' - Posiedzenie Rady Miasta Kraków';
     }
 
 }
