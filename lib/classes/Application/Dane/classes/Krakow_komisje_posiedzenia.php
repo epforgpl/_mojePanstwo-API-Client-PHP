@@ -42,10 +42,10 @@ class Krakow_komisje_posiedzenia extends DataObject
 	    return 'Posiedzenie ' . $this->dataSlownie( $this->getData('data') );
 	    
     }
-    
+
     public function getUrl()
     {
-	    return '/dane/gminy/903,krakow/komisje_posiedzenia/' . $this->getId();
+	    return '/dane/gminy/903,krakow/komisje/' . $this->getData('komisja_id') . '/posiedzenia/' . $this->getId();
     }
 	
 	public function getThumbnailUrl($size = '3')
