@@ -248,6 +248,12 @@ class DataObject extends \MP\API
 	    
     }
     
+    public function getAction() {
+	    
+	    return @$this->contexts[0]['action'];
+	    
+    }
+    
     public function getCreator($field = '*') {
 	    
 	    $creator = @$this->contexts[0]['creator'];
