@@ -20,9 +20,6 @@ class Pisma extends Application
         }
     }
     
-    public function load($id) {
-	    return $this->request($id);
-    }
     
     public function getTemplatesGrouped() {
         return $this->request('templates/grouped');
@@ -32,6 +29,14 @@ class Pisma extends Application
         return $this->request('templates/' . $id);
     }
 
+    public function document_read($id) {
+        return $this->request('documents/' . $id);
+    }
+    
+    public function document_create($doc) {
+        return $this->request('documents', $doc, 'POST');
+    }
+    
     public function document_get($id) {
         return $this->request('documents/' . $id);
     }

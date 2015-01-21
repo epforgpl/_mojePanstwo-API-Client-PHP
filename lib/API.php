@@ -58,6 +58,9 @@ class API
         if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
             throw new RequestMethodNotSupported('GET');
 		
+		if( $params===null )
+			$params = array();
+		
 		$timer = array(
 			'resource' => $resource,
 			'params' => $params,
