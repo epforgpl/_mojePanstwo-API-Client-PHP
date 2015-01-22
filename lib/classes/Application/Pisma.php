@@ -8,7 +8,7 @@ class Pisma extends Application
     protected $requests_prefix = '/pisma/';
 
     public function search() {
-        return $this->request('search');
+        return $this->request('documents');
     }
 
     public function save($doc) {
