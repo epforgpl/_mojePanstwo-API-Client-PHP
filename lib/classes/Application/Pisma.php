@@ -29,23 +29,19 @@ class Pisma extends Application
         return $this->request('templates/' . $id);
     }
 
-    public function document_read($id) {
-        return $this->request('documents/' . $id);
+    public function document_read($id, $params = array()) {
+	    return $this->request('documents/' . $id, $params);
     }
     
     public function document_create($doc) {
         return $this->request('documents', $doc, 'POST');
-    }
-    
-    public function document_get($id) {
-        return $this->request('documents/' . $id);
     }
 
     public function document_send($id) {
         return $this->request('documents/' . $id . '/send');
     }
 
-    public function document_delete($id) {
-        return $this->request('documents/' . $id . '/delete');
+    public function document_delete($id, $params = array()) {
+        return $this->request('documents/' . $id, $params, 'DELETE');
     }
 } 
