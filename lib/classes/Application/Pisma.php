@@ -7,6 +7,10 @@ class Pisma extends Application
 {
     protected $requests_prefix = '/pisma/';
 
+	public function transfer_anonymous($params) {
+        return $this->request('transfer_anonymous', $params);
+    }
+	
     public function documents_search($params) {
         return $this->request('documents', $params);
     }
@@ -28,7 +32,7 @@ class Pisma extends Application
     }
     
     public function documents_send($id) {
-        return $this->request('documents/' . $id . '/send');
+        return $this->request('documents/' . $id . '/send', null, 'POST');
     }
         
     public function templates_grouped() {
