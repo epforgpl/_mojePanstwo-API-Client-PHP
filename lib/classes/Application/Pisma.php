@@ -27,6 +27,10 @@ class Pisma extends Application
         return $this->request('documents/' . $id, $doc, 'POST');
     }
     
+    public function documents_partial_update($id, $doc) {
+        return $this->request('documents/' . $id, $doc, 'PUT');
+    }
+    
     public function documents_delete($id, $params = array()) {
         return $this->request('documents/' . $id, $params, 'DELETE');
     }
