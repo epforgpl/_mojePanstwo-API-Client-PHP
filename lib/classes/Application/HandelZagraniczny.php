@@ -2,14 +2,16 @@
 
 namespace MP;
 
-class WyjazdyPoslow extends Application
+class HandelZagraniczny extends Application
 {
 
-    protected $requests_prefix = '/wyjazdyposlow/';
+    protected $requests_prefix = '/handelzagraniczny/';
 
-    public function getStats()
+    public function getCountriesData($year)
     {
-        return @$this->request('stats');
+        return @$this->request('stats', array(
+            'year'    => $year
+        ));
     }
 
 }

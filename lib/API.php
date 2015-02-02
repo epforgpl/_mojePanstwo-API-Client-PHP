@@ -385,6 +385,11 @@ class API
         return new WydatkiPoslow( $this->getOptions() );
     }
 
+    final public function HandelZagraniczny()
+    {
+        return new HandelZagraniczny( $this->getOptions() );
+    }
+
     final public function document($id)
     {
         return new Document($id);
