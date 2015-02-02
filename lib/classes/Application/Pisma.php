@@ -7,40 +7,43 @@ class Pisma extends Application
 {
     protected $requests_prefix = '/pisma/';
 
-    public function search() {
-        return $this->request('search');
+	public function transfer_anonymous($params) {
+        return $this->request('transfer_anonymous', $params);
     }
-
-    public function save($doc) {
-        if (isset($doc['id']) && $doc['id']) {
-            return $this->request($doc['id'], $doc, 'POST');
-
-        } else {
-            return $this->request('index', $doc, 'POST');
-        }
+	
+    public function documents_search($params) {
+        return $this->request('documents', $params);
     }
     
-    public function load($id) {
-	    return $this->request($id);
+    public function documents_create($doc) {
+        return $this->request('documents', $doc, 'POST');
     }
     
-    public function getTemplatesGrouped() {
+    public function documents_read($id, $params = array()) {
+	    return $this->request('documents/' . $id, $params);
+    }
+    
+    public function documents_update($id, $doc) {
+        return $this->request('documents/' . $id, $doc, 'POST');
+    }
+    
+    public function documents_partial_update($id, $doc) {
+        return $this->request('documents/' . $id, $doc, 'PUT');
+    }
+    
+    public function documents_delete($id, $params = array()) {
+        return $this->request('documents/' . $id, $params, 'DELETE');
+    }
+    
+    public function documents_send($id) {
+        return $this->request('documents/' . $id . '/send', null, 'POST');
+    }
+        
+    public function templates_grouped() {
         return $this->request('templates/grouped');
     }
     
-    public function getTemplate($id) {
+    public function templates_read($id) {
         return $this->request('templates/' . $id);
-    }
-
-    public function document_get($id) {
-        return $this->request('documents/' . $id);
-    }
-
-    public function document_send($id) {
-        return $this->request('documents/' . $id . '/send');
-    }
-
-    public function document_delete($id) {
-        return $this->request('documents/' . $id . '/delete');
     }
 } 

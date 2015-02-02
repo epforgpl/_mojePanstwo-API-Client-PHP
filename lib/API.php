@@ -58,6 +58,9 @@ class API
         if (!in_array($method, array('GET', 'POST', 'DELETE', 'PUT')))
             throw new RequestMethodNotSupported('GET');
 		
+		if( $params===null )
+			$params = array();
+		
 		$timer = array(
 			'resource' => $resource,
 			'params' => $params,
@@ -95,6 +98,12 @@ class API
 		
 		} elseif($method == 'DELETE') {
 			$curl_options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
+			
+        } elseif($method == 'PUT') {
+	        $curl_options[CURLOPT_PUT] = true;
+			$curl_options[CURLOPT_CUSTOMREQUEST] = 'PUT';
+			$curl_options[CURLOPT_POSTFIELDS] = $query;
+			
         }
 		
         $curl_options[CURLOPT_URL] = $url;

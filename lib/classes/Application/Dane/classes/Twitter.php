@@ -32,15 +32,13 @@ class Twitter extends DocDataObject
     );
     
     public $dictionary = array(
-		1 => array('Poseł', 'success'),
-		2 => array('Komentator', 'default'),
+		2 => array('Komentator', 'primary'),
 		3 => array('Urząd', 'warning'),
-		4 => array('Człowiek rządu', 'danger'),
-		9 => array('NGO', 'primary'),
+		7 => array('Polityk', 'danger'),
+		9 => array('NGO', 'success'),
 	);
 	
 	public function getAccountTypeName(){
-		
 		$output = '';
 				
 		if( 
@@ -57,7 +55,7 @@ class Twitter extends DocDataObject
 	}
 	
 	public function getAccountTypeClass(){
-		
+				
 		$output = '';
 		
 		if( 
