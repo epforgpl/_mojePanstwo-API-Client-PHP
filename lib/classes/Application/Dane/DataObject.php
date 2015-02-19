@@ -27,6 +27,7 @@ class DataObject extends \MP\API
     public $force_hl_fields = false;
     
     public $data;
+    public $static;
     public $layers = array();
     public $contexts = array();
     public $id;
@@ -46,7 +47,10 @@ class DataObject extends \MP\API
         $this->object_id = $params['global_id'];
         $this->global_id = $params['global_id'];
         $this->slug = $params['slug'];
-
+		
+		if (isset($params['static']))
+            $this->static = $params['static'];
+		
         if (isset($params['score']))
             $this->layers['score'] = $params['score'];
 
@@ -150,6 +154,14 @@ class DataObject extends \MP\API
     public function getData($field = '*')
     {
         return $field == '*' ? $this->data : @$this->data[$field];
+    }
+    
+    public function getStatic($field = '*')
+    {
+	    if( isset($this->static) && !empty($this->static) )
+	        return $field == '*' ? $this->static : @$this->static[$field];
+	    else
+	    	return false;
     }
 
     public function getId()

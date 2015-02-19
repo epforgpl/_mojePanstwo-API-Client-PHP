@@ -2,7 +2,7 @@
 
 namespace MP\Dane;
 
-class Zamowienia_publiczne extends DocDataObject
+class Zamowienia_publiczne_dokumenty extends DocDataObject
 {
 	
 	protected $tiny_label = 'Zamówienie publiczne';
@@ -36,13 +36,28 @@ class Zamowienia_publiczne extends DocDataObject
     	'zamawiajacy_nazwa', 'zamawiajacy_miejscowosc',
     );
 	
+	public function getShortTitle() {
+		
+		switch( $this->getData('typ_id') ) {
+			case '1': return 'Ogłoszenie zamówienia';
+			case '2': return 'Ogłoszenie zamówienia';
+			case '3': return 'Udzielenie zamówienia';
+			case '4': return 'Ogłoszenie konkursu';
+			case '5': return 'Ogłoszenie wyników konkursu';
+			case '6': return 'Zmiana zamówienia';
+			case '7': return 'Zamiar zawarcia umowy';
+			default: return 'Ogłoszenie';
+		}
+		
+	}
+	
     public function getLabel()
     {
 		
 		$status = $this->getStatus();		
 		if( $this->getData('tryb_id')=='2' ) {
 			
-			return 'Zamówienie z wolnej ręki';
+			return '<span class="label label-danger">Zamówienie z wolnej ręki</span>';
 			
 		} else {
 		
@@ -80,6 +95,21 @@ class Zamowienia_publiczne extends DocDataObject
 	    
     }
     
+    public function getUrl() {
+	    
+	    $parent_id = $this->getId();
+	    if(
+		    $this->getData('child') &&
+		    $this->getData('parent_id')
+	    )
+	    	$parent_id = $this->getData('parent_id');
+	    	
+	    return '/dane/zamowienia_publiczne/' . $parent_id . '/dokumenty/' . $this->getId();
+	    
+	}
+    
     public $force_hl_fields = true;
+    
+    
     
 }
