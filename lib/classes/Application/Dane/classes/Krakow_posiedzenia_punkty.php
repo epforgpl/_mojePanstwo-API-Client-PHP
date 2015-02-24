@@ -65,7 +65,7 @@ class Krakow_posiedzenia_punkty extends DocDataObject
 		    $this->getData('glosowanie_id') || 
 		    $this->getData('yt_video_id') 
 	    )
-	    	return '/dane/gminy/903/punkty/' . $this->getId();
+	    	return '/dane/gminy/903,krakow/punkty/' . $this->getId();
 	    else
 	    	return false;
 		
