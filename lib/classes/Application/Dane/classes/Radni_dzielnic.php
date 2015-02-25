@@ -80,4 +80,19 @@ class Radni_dzielnic extends DataObject
     {
 	    return '/dane/gminy/903,krakow/dzielnice/' . $this->getData('dzielnica_id') . '/radni/' . $this->getId();
     }
+    
+    public function getDescription()
+    {
+	    $output = 'Radny dzielnicy <a href="/dane/dzielnice/' . $this->getData('dzielnice.id') . '">' . $this->getData('dzielnice.nazwa') . '</a>.<br/>';
+	    
+	    
+	    	
+	    if( in_array('7', $this->getData('kadencja_id')) )
+	    	$output .= ' Kadencja VII.';
+	    	
+	    if( in_array('6', $this->getData('kadencja_id')) )
+	    	$output .= ' Kadencja VI.';
+	    	    
+	    return $output;
+    }
 }
