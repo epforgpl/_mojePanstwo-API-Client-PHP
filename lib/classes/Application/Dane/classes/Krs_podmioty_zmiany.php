@@ -24,6 +24,7 @@ class Krs_podmioty_zmiany extends DataObject
 			case '6': return 'Zmiana adresu siedziby';
 			case '7': return 'Zmiana organu sprawującego nadzór';
 			case '8': return 'Zmiana danych rejestrowych';
+			case '12': return 'Zmiana celu działania organizacji';
 		}
 		
 	}
